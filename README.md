@@ -10,7 +10,6 @@ Welcome to Boredom Buster, a simple web application that helps you find exciting
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [API Usage](#api-usage)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Description
@@ -57,13 +56,13 @@ To run this project locally, follow these steps:
     
 5. Open your web browser and go to http://localhost:3000 to use the application.
 
-##Usage
+## Usage
 
     Select a category from the dropdown menu.
     Click the "Get Bored!" button to fetch a random activity suggestion.
     Enjoy your newfound activity idea!
 
-##API Usage
+## API Usage
 
 This project uses the BoredAPI to retrieve random activity suggestions. Visit BoredAPI for more information about the API and its terms of use.
 
