@@ -1,0 +1,17 @@
+{
+  "name": "server",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "express": "^5.0.0",
+    "body-parser": "^1.20.2"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13"
+  },
+  "main": "server.js",
+  "type": "module"
+}
