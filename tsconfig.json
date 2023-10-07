@@ -12,6 +12,7 @@
     "skipDefaultLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
     "isolatedModules": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -19,5 +20,5 @@
     "allowSyntheticDefaultImports": true,
     "lib": ["dom", "dom.iterable", "esnext"]
   },
-  "include": ["client/src", "server/src", "shared/src",]
+  "include": ["client/src", "server/src", "shared/src"]
 }
