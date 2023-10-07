@@ -52,7 +52,12 @@ To run this project locally, follow these steps:
 4. Start the development server:
 
     ```bash
-    npm start
+    npm run client
+
+4. Start the backend server:
+
+    ```bash
+    npm run server
     
 5. Open your web browser and go to http://localhost:3000 to use the application.
 
@@ -68,4 +73,4 @@ This project uses the BoredAPI to retrieve random activity suggestions. Visit Bo
 
 ## License
 
-This project uses data from the BoredAPI, which is available under the MIT License. You can find more informtion [here](https://www.boredapi.com/about).
+This project uses data from the BoredAPI, which is available under the MIT License. You can find more information [here](https://www.boredapi.com/about).
