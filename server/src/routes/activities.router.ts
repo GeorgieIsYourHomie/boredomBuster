@@ -17,8 +17,7 @@ router.get("/", async (_req: Request, res: Response) => {
 
     // Sending data as response
     res.send(data);
-    console.log("Request sent!");
-    
+    console.log("Request sent! Response is:", data);
   } catch (error) {
     console.log("Error requesting data.");
     res.sendStatus(500);

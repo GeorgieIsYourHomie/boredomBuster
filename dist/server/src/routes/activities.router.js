@@ -28,7 +28,7 @@ router.get("/", (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const data = response.data;
         // Sending data as response
         res.send(data);
-        console.log("Request sent!");
+        console.log("Request sent! Response is:", data);
     }
     catch (error) {
         console.log("Error requesting data.");
