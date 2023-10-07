@@ -1,22 +1,26 @@
 // * - IMPORTING AND DECLARING -
-require("dotenv").config();
-const express = require("express");
+// Express
+import express from "express";
+// Body Parser
+import bodyParser from "body-parser";
+// Routes
+import activityRouter from "./routes/activities.router";
+// Path for constructing correct paths
+import path from "path";
+// Declarations
 const app = express();
-const bodyParser = require("body-parser");
 const port = process.env.PORT || 5000;
-const boredRouter = require("./routes/bored.router");
 
-/** ---------- MIDDLEWARE ---------- **/
+// * - MIDDLEWARE -
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json()); // needed for angular requests
-app.use(express.static("build"));
+app.use(bodyParser.json());
+// Serve static files from the "public" directory inside the "client" directory
+app.use(express.static(path.join(__dirname, "client", "public")));
 
-/** ---------- ROUTES ---------- **/
-app.use("/bored", boredRouter);
+// * - ROUTES -
+app.use("/api/activity", activityRouter);
 
-/** ---------- START SERVER ---------- **/
-app.listen(port, function () {
+// * - START SERVER -
+app.listen(port, (): void => {
   console.log("Listening on port: ", port);
 });
-
-export {};
