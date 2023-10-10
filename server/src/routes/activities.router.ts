@@ -14,15 +14,6 @@ activityRouter.get("/", async (req: Request, res: Response): Promise<void> => {
     // Declaring activity
     const randomActivityAndCategory: Activity | void = await getRandomActivityAndCategory(req, res);
 
-<<<<<<< Updated upstream
-    // Declaring response data as variable
-    const data = response.data;
-
-    // Sending data as response
-    res.send(data);
-    console.log("Request sent!");
-    
-=======
     // If true, send data
     if (randomActivityAndCategory) {
       res.json(randomActivityAndCategory);
@@ -31,7 +22,6 @@ activityRouter.get("/", async (req: Request, res: Response): Promise<void> => {
     else {
       res.status(500).send("Failed to get random activity and category.");
     }
->>>>>>> Stashed changes
   } catch (error) {
     console.error("Error handling random activity request:", error);
     res.status(500).send("Internal server error.");

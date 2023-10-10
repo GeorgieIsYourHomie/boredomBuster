@@ -19,17 +19,20 @@ export const getRandomActivityAndCategory = async (
       "http://www.boredapi.com/api/activity/"
     );
 
+    console.log("response.data is:", response.data);
+
     // Declaring data from the response; using type to check data
     const data: Activity = response.data;
 
     // Creating an object
+    // TODO: Make a type for this specific object rather than Activity
     const randomActivityAndCategory: Activity = {
       activity: data.activity,
-      accessibility: data.accessibility,
-      category: data.category || "N/A", // Use a default value if category is missing
+      type: data.type,
       participants: data.participants,
       price: data.price,
       key: data.key,
+      accessibility: data.accessibility,
     };
 
     return randomActivityAndCategory; // Return the result
