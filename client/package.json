@@ -9,7 +9,11 @@
     "react-scripts": "^5.0.1"
   },
   "scripts": {
-    "start": "react-scripts start"
+    "client": "react-scripts start",
+    "build": "react-scripts build"
   },
-  "homepage": "./"
+  "homepage": "./",
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+  }
 }
