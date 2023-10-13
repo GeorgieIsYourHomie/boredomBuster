@@ -22,7 +22,6 @@ const getRandomActivityAndCategory = (_req, _res) => __awaiter(void 0, void 0, v
     try {
         // Get request to the API for a random activity and category
         const response = yield axios_1.default.get("http://www.boredapi.com/api/activity/");
-        console.log("response.data is:", response.data);
         // Declaring data from the response; using type to check data
         const data = response.data;
         // Creating an object
