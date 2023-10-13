@@ -10,7 +10,7 @@
   },
   "scripts": {
     "client": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && npm run tsc",
     "tsc": "tsc"
   },
   "homepage": "./",
