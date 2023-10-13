@@ -29,6 +29,7 @@
     "install-client": "cd client && npm install",
     "install-server": "cd server && npm install",
     "build": "cd client && npm run build",
+    "tsc": "tsc -b",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

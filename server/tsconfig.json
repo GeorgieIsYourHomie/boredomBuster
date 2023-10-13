@@ -1,7 +1,7 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "outDir": "../dist/server"
+    "outDir": "./build"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"]
 }

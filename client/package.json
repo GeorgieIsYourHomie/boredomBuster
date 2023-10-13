@@ -10,7 +10,8 @@
   },
   "scripts": {
     "client": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "tsc": "tsc"
   },
   "homepage": "./",
   "devDependencies": {
