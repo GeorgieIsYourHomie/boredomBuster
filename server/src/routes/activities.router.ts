@@ -3,30 +3,61 @@
 import { Router, Request, Response } from "express";
 // BoredAPI requests
 import { getRandomActivityAndCategory } from "../controllers/activity.controller"; // random activity and category
-// Activity Type
+import { getRandomActivityByCategory } from "../controllers/activity.controller"; // random activity searched by category
+// Activity Model
 import { Activity } from "../../../shared/models/activity";
 // Express Router
 const activityRouter = Router();
 
 // * GET request for random activity and category
-activityRouter.get("/", async (req: Request, res: Response): Promise<void> => {
-  try {
-    // Declaring activity
-    const randomActivityAndCategory: Activity | void = await getRandomActivityAndCategory(req, res);
+activityRouter.get(
+  "/random-activity-and-category",
+  async (req: Request, res: Response): Promise<void> => {
+    try {
+      // Declaring activity
+      const randomActivityAndCategory: Activity | void =
+        await getRandomActivityAndCategory(req, res);
 
-    // If true, send data
-    if (randomActivityAndCategory) {
+      // Send random activity and category to client
       res.json(randomActivityAndCategory);
-      console.log("Request sent! Random activity and category is:", randomActivityAndCategory);
-    } // If void, send error 
-    else {
-      res.status(500).send("Failed to get random activity and category.");
+      console.log(
+        "Request sent! Random activity and category is:",
+        randomActivityAndCategory
+      );
+    } catch (error) {
+      console.error(
+        "Error handling random activity and category request:",
+        error
+      );
+      res.status(500).send("Server error.");
     }
-  } catch (error) {
-    console.error("Error handling random activity request:", error);
-    res.status(500).send("Internal server error.");
   }
-});
+);
+
+// * GET request for random activity by category
+activityRouter.get(
+  "/random-activity-by-category",
+  async (req: Request, res: Response): Promise<void> => {
+    try {
+      // Declaring activity
+      const randomActivityByCategory: Activity | void =
+        await getRandomActivityByCategory(req, res);
+
+      // Send random activity and category to client
+      res.json(randomActivityByCategory);
+      console.log(
+        "Request sent! Random activity by category is:",
+        randomActivityByCategory
+      );
+    } catch (error) {
+      console.error(
+        "Error handling random activity by category request:",
+        error
+      );
+      res.status(500).send("Server error.");
+    }
+  }
+);
 
 // * Exporting Router
 export default activityRouter;
