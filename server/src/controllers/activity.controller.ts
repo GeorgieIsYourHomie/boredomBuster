@@ -25,7 +25,7 @@ export const getRandomActivityAndCategory = async (
     // Declaring data from the response; using type to check data
     const data: Activity = response.data;
 
-    // Creating an object
+    // Creating an object for response to conform to
     const randomActivityAndCategory: Activity = {
       activity: data.activity,
       type: data.type,
@@ -60,8 +60,10 @@ export const getRandomActivityByCategory = async (
       "http://www.boredapi.com/api/activity?type=recreational"
     );
 
+    // Declaring data from url response
     const data: Activity = response.data;
 
+    // Creating an object for response to conform to
     const randomActivityByCategory: Activity = {
       activity: data.activity,
       type: data.type,

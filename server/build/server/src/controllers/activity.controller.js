@@ -27,7 +27,7 @@ const getRandomActivityAndCategory = (_req, _res) => __awaiter(void 0, void 0, v
         const response = yield axios_1.default.get("http://www.boredapi.com/api/activity/");
         // Declaring data from the response; using type to check data
         const data = response.data;
-        // Creating an object
+        // Creating an object for response to conform to
         const randomActivityAndCategory = {
             activity: data.activity,
             type: data.type,
@@ -55,7 +55,9 @@ const getRandomActivityByCategory = (_req, _res) => __awaiter(void 0, void 0, vo
         const response = yield axios_1.default.get(
         // `http://www.boredapi.com/api/activity?type=${category}`
         "http://www.boredapi.com/api/activity?type=recreational");
+        // Declaring data from url response
         const data = response.data;
+        // Creating an object for response to conform to
         const randomActivityByCategory = {
             activity: data.activity,
             type: data.type,
