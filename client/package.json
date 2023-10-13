@@ -10,10 +10,15 @@
   },
   "scripts": {
     "client": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build && npm run tsc",
+    "tsc": "tsc"
   },
   "homepage": "./",
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "eslint": "^8.51.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "prettier": "^3.0.3"
   }
 }

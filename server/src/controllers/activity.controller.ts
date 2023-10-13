@@ -19,8 +19,6 @@ export const getRandomActivityAndCategory = async (
       "http://www.boredapi.com/api/activity/"
     );
 
-    console.log("response.data is:", response.data);
-
     // Declaring data from the response; using type to check data
     const data: Activity = response.data;
 
