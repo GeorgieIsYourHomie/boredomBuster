@@ -13,9 +13,7 @@ const App: React.FC = () => {
   return (
     <React.Fragment>
       <header>
-        <div
-        style={{border: "solid black 2px"}}
-        >
+        <div style={{ border: "solid black 2px" }}>
           {/* NavBar Component */}
           <NavBar />
         </div>
