@@ -11,7 +11,7 @@ import NavBar from "../NavBar/NavBar";
 // * - App COMPONENT -
 const App: React.FC = () => {
   return (
-    <div className="border-8 w-100 my-3 mx-auto">
+    <div className="w-80 my-3 mx-auto">
       <header>
         <div>
           {/* NavBar Component */}
@@ -19,13 +19,13 @@ const App: React.FC = () => {
         </div>
 
         <div className="my-2.5">
-          <h1 className="border-4 border-indigo-500 text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-10xl">
+          <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-10xl">
             Boredom Buster
           </h1>
         </div>
       </header>
 
-      <main className="flex flex-col gap-5 text-center">
+      <main className="flex flex-col mt-9 gap-3 text-center">
         <FindActivity />
         <ShowActivity />
       </main>

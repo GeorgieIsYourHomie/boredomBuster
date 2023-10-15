@@ -1,13 +1,14 @@
 // * - IMPORTING -
 // React
 import React from "react";
+import { NavBarButtonStyle } from "../../Types/navBarTypes";
 
 // * - TechStack COMPONENT -
-const TechStack: () => JSX.Element = () => {
+const TechStack: React.FC<NavBarButtonStyle> = ({ navBarButtonStyle }) => {
   return (
     <React.Fragment>
       <div>
-        <button>Tech Stack</button>
+        <button className={navBarButtonStyle}>Tech Stack</button>
       </div>
     </React.Fragment>
   );
