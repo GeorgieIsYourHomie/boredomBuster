@@ -12,7 +12,7 @@ const FindActivityButton_1 = __importDefault(require("./FindActivityButton/FindA
 const Categories_1 = __importDefault(require("./Categories/Categories"));
 // * - FindActivityButton COMPONENT -
 const FindActivity = () => {
-    return ((0, jsx_runtime_1.jsx)(react_1.default.Fragment, { children: (0, jsx_runtime_1.jsxs)("div", Object.assign({ style: { border: "solid black 3px" } }, { children: [(0, jsx_runtime_1.jsx)(FindActivityButton_1.default, {}), (0, jsx_runtime_1.jsx)(Categories_1.default, {})] })) }));
+    return ((0, jsx_runtime_1.jsx)(react_1.default.Fragment, { children: (0, jsx_runtime_1.jsxs)("div", { style: { border: "solid black 3px" }, children: [(0, jsx_runtime_1.jsx)(FindActivityButton_1.default, {}), (0, jsx_runtime_1.jsx)(Categories_1.default, {})] }) }));
 }; // * - END FindActivityButton COMPONENT -
 // * Exporting FindActivityButton Component
 exports.default = FindActivity;

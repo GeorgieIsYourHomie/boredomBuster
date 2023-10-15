@@ -12,18 +12,19 @@ const CategoryItem_1 = __importDefault(require("./CategoryItem/CategoryItem"));
 const Categories = () => {
     // Array of all categories
     const Categories = [
-        "education",
-        "recreational",
-        "social",
-        "diy",
-        "charity",
-        "cooking",
-        "relaxation",
-        "music",
-        "busywork",
+        "Random",
+        "Education",
+        "Recreational",
+        "Social",
+        "DIY",
+        "Charity",
+        "Cooking",
+        "Relaxation",
+        "Music",
+        "Busywork",
     ];
     // * - RENDERING -
-    return ((0, jsx_runtime_1.jsx)(react_1.default.Fragment, { children: (0, jsx_runtime_1.jsx)("div", { children: Categories.map((category) => {
+    return ((0, jsx_runtime_1.jsx)(react_1.default.Fragment, { children: (0, jsx_runtime_1.jsx)("div", { style: { display: "flex", flexDirection: "row", gap: "20px" }, children: Categories.map((category) => {
                 return (0, jsx_runtime_1.jsx)(CategoryItem_1.default, { category: category }, category);
             }) }) }));
 }; // * - END Categories COMPONENT -

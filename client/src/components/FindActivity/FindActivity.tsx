@@ -9,7 +9,7 @@ import Categories from "./Categories/Categories";
 const FindActivity: () => JSX.Element = () => {
   return (
     <React.Fragment>
-      <div style={{ border: "solid black 3px" }}>
+      <div className="border-2 border-black p-2">
         {/* Components */}
         <FindActivityButton />
         <Categories />

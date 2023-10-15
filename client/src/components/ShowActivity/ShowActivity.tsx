@@ -6,7 +6,7 @@ import React from "react";
 const ShowActivity: () => JSX.Element = () => {
   return (
     <React.Fragment>
-      <div style={{ border: "solid black 2px", boxSizing: "border-box" }}>
+      <div>
         <p>Show activity here</p>
       </div>
     </React.Fragment>

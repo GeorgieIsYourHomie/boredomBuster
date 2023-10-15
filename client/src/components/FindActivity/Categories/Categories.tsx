@@ -8,21 +8,21 @@ const Categories: () => JSX.Element = () => {
   // Array of all categories
   const Categories: string[] = [
     "Random",
-    "Education",
-    "Recreational",
+    "Recreation",
     "Social",
+    "Education",
     "DIY",
-    "Charity",
     "Cooking",
+    "Charity",
     "Relaxation",
-    "Music",
     "Busywork",
+    "Music",
   ];
   // * - RENDERING -
   return (
     <React.Fragment>
       <div 
-      style={{display: "flex", flexDirection: "row", gap: "20px"}}
+      className=" flex gap-4 overflow-auto"
       >
         {/* Mapping through categories here, rendering a button for each category */}
         {Categories.map((category: string): JSX.Element => {

@@ -15,7 +15,7 @@ const ShowActivity_1 = __importDefault(require("../ShowActivity/ShowActivity"));
 const NavBar_1 = __importDefault(require("../NavBar/NavBar"));
 // * - App COMPONENT -
 const App = () => {
-    return ((0, jsx_runtime_1.jsxs)(react_1.default.Fragment, { children: [(0, jsx_runtime_1.jsxs)("header", { children: [(0, jsx_runtime_1.jsx)("div", Object.assign({ style: { border: "solid black 2px" } }, { children: (0, jsx_runtime_1.jsx)(NavBar_1.default, {}) })), (0, jsx_runtime_1.jsx)("h1", { children: "Boredom Buster" })] }), (0, jsx_runtime_1.jsxs)("main", { children: [(0, jsx_runtime_1.jsx)(FindActivity_1.default, {}), (0, jsx_runtime_1.jsx)(ShowActivity_1.default, {})] })] }));
+    return ((0, jsx_runtime_1.jsxs)(react_1.default.Fragment, { children: [(0, jsx_runtime_1.jsxs)("header", { children: [(0, jsx_runtime_1.jsx)("div", { children: (0, jsx_runtime_1.jsx)(NavBar_1.default, {}) }), (0, jsx_runtime_1.jsx)("div", { className: "border-blue-500", children: (0, jsx_runtime_1.jsx)("h1", { className: "border-b-4 border-blue-500 text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-10xl", children: "Boredom Buster" }) })] }), (0, jsx_runtime_1.jsxs)("main", { children: [(0, jsx_runtime_1.jsx)(FindActivity_1.default, {}), (0, jsx_runtime_1.jsx)(ShowActivity_1.default, {})] })] }));
 }; // * - END App COMPONENT -
 // * Exporting App Component
 exports.default = App;

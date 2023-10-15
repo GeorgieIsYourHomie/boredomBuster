@@ -13,7 +13,7 @@ const GitHub_1 = __importDefault(require("./GitHub/GitHub"));
 // Components
 // * - NavBar COMPONENT -
 const NavBar = () => {
-    return ((0, jsx_runtime_1.jsx)(react_1.default.Fragment, { children: (0, jsx_runtime_1.jsxs)("div", Object.assign({ style: { display: "flex", flexDirection: "row" } }, { children: [(0, jsx_runtime_1.jsx)(TechStack_1.default, {}), (0, jsx_runtime_1.jsx)(LinkedIn_1.default, {}), (0, jsx_runtime_1.jsx)(GitHub_1.default, {})] })) }));
+    return ((0, jsx_runtime_1.jsx)(react_1.default.Fragment, { children: (0, jsx_runtime_1.jsxs)("div", { style: { display: "flex", flexDirection: "row" }, children: [(0, jsx_runtime_1.jsx)(TechStack_1.default, {}), (0, jsx_runtime_1.jsx)(LinkedIn_1.default, {}), (0, jsx_runtime_1.jsx)(GitHub_1.default, {})] }) }));
 }; // * - END NavBar COMPONENT -
 // * Exporting Navbar Component
 exports.default = NavBar;
