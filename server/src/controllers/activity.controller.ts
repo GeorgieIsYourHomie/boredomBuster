@@ -41,8 +41,6 @@ export const getRandomActivityAndCategory = async (
     console.error("Error handling random activity request:", error);
     throw error; // Rethrow the error to handle it in the route handler
   }
-<<<<<<< Updated upstream
-=======
 }; // * - END RANDOM ACTIVITY AND CATEGORY -
 
 // * - RANDOM ACTIVITY BY CATEGORY -
@@ -78,5 +76,4 @@ export const getRandomActivityByCategory = async (
     console.error("Error handling random activity request:", error);
     throw error;
   }
->>>>>>> Stashed changes
 };
