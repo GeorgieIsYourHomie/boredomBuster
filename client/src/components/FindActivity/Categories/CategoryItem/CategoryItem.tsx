@@ -2,7 +2,7 @@
 // React
 import React, { useState } from "react";
 // Category Style
-import { getCategoryStyles } from "./Styles/Styles";
+import { settingCategoryStyles } from "./Styles/Styles";
 
 // Expected category prop type
 type CategoryProp = {
@@ -16,8 +16,11 @@ const CategoryItem: React.FC<CategoryProp> = ({ category }) => {
   const [categoryIsSelected, setCategoryIsSelected] = useState(false);
 
   // * - DECLARATIONS -
-  // Category class
-  const categoryClass: string = getCategoryStyles(category, categoryIsSelected);
+  // Category class assignment
+  const categoryClass: string = settingCategoryStyles(
+    category,
+    categoryIsSelected
+  );
 
   // * FUNCTIONS
   const selectCategory = () => {
