@@ -68,6 +68,7 @@ const CategoryItem: React.FC<CategoryProp> = ({ category }) => {
     <React.Fragment>
       {/* Category */}
       <button className={categoryClass}>{category}</button>
+
     </React.Fragment>
   );
 }; // * - END CategoryItem COMPONENT -

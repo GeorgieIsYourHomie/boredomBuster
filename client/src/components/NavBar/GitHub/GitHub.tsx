@@ -1,7 +1,7 @@
 // * - IMPORTING -
 // React
 import React from "react";
-// Nav bar button style type
+// Types
 import { NavBarButtonStyle } from "../../Types/navBarTypes";
 
 // * - GitHub COMPONENT -
@@ -9,7 +9,15 @@ const GitHub: React.FC<NavBarButtonStyle> = ({ navBarButtonStyle }) => {
   return (
     <React.Fragment>
       <div>
-        <button className={navBarButtonStyle}>GitHub</button>
+        <button className={navBarButtonStyle}>
+          <a
+            href="https://github.com/GeorgieIsYourHomie"
+            rel="noreferrer"
+            target="_blank"
+          >
+            GitHub
+          </a>
+        </button>
       </div>
     </React.Fragment>
   );

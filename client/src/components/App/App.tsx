@@ -11,7 +11,7 @@ import NavBar from "../NavBar/NavBar";
 // * - App COMPONENT -
 const App: React.FC = () => {
   return (
-    <div className="w-80 my-3 mx-auto">
+    <div className="w-100 px-6 my-3 mx-auto ">
       <header>
         <div>
           {/* NavBar Component */}

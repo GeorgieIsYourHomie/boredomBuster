@@ -9,7 +9,13 @@ const LinkedIn: React.FC<NavBarButtonStyle> = ({ navBarButtonStyle }) => {
   return (
     <React.Fragment>
       <div>
-        <button className={navBarButtonStyle}>LinkedIn</button>
+        <a
+          href="https://www.linkedin.com/in/georgio-harris-82370a239/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <button className={navBarButtonStyle}>LinkedIn</button>
+        </a>
       </div>
     </React.Fragment>
   );
