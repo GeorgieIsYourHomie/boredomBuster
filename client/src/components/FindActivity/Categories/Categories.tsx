@@ -21,9 +21,7 @@ const Categories: () => JSX.Element = () => {
   // * - RENDERING -
   return (
     <React.Fragment>
-      <h2 className="mb-6 text-3xl sm:text-3xl md:text-3xl lg:text-5xl xl:text-5xl">
-        Select a Category
-      </h2>
+      <h2 className="mb-6 text-3xl">Select a Category</h2>
       <div className="flex flex-wrap justify-center gap-4">
         {/* Mapping through categories here, rendering a button for each category */}
         {Categories.map((category: string): JSX.Element => {
