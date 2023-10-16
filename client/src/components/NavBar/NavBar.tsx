@@ -11,13 +11,13 @@ const NavBar: () => JSX.Element = () => {
   // * - DECLARATIONS -
   // Declaring nav bar button styling
   const navBarButtonStyle: string =
-    "h-5 px-3 text-xs text-black border border-black rounded-full transition-colors duration-150 hover:bg-black shadow-[0px_9px_30px_-10px_rgba(74,63,205)] transform active:scale-75 transition-transform duration-150  hover:shadow-[0px_9px_30px_-4px_rgba(20,20,20)] hover:text-white";
+    "transform rounded-full border border-black bg-black px-3 text-xs text-black text-white shadow-[0px_9px_30px_-10px_rgba(74,63,205)] transition-colors transition-transform duration-150 hover:bg-white hover:text-black hover:shadow-[0px_9px_30px_-4px_rgba(20,20,20)] active:scale-75  md:text-lg md:shadow-none";
 
   // * - RENDERING -
   return (
     <React.Fragment>
       {/* Components */}
-      <div className="flex justify-center flex-row gap-8 mb-8">
+      <div className="mb-8 flex flex-row justify-center gap-8">
         <TechStack navBarButtonStyle={navBarButtonStyle} />
         <LinkedIn navBarButtonStyle={navBarButtonStyle} />
         <GitHub navBarButtonStyle={navBarButtonStyle} />
