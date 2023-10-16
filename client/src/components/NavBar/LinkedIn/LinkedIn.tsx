@@ -1,13 +1,21 @@
 // * - IMPORTING -
 // React
 import React from "react";
+// Nav bar button styling
+import { NavBarButtonStyle } from "../../Types/navBarTypes";
 
 // * - LinkedIn COMPONENT -
-const LinkedIn: () => JSX.Element = () => {
+const LinkedIn: React.FC<NavBarButtonStyle> = ({ navBarButtonStyle }) => {
   return (
     <React.Fragment>
       <div>
-        <button>LinkedIn</button>
+        <a
+          href="https://www.linkedin.com/in/georgio-harris-82370a239/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <button className={navBarButtonStyle}>LinkedIn</button>
+        </a>
       </div>
     </React.Fragment>
   );

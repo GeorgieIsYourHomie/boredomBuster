@@ -9,10 +9,10 @@ import Categories from "./Categories/Categories";
 const FindActivity: () => JSX.Element = () => {
   return (
     <React.Fragment>
-      <div className="border-2 border-black p-2">
+      <div className="p-4 border border-black rounded-lg shadow-[4px_8px_30px_-5px_rgba(0,0,0,0.3)]">
         {/* Components */}
-        <FindActivityButton />
         <Categories />
+        <FindActivityButton />
       </div>
     </React.Fragment>
   );
