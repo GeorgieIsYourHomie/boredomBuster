@@ -8,8 +8,8 @@ const jsx_runtime_1 = require("react/jsx-runtime");
 // React
 const react_1 = __importDefault(require("react"));
 // * - TechStack COMPONENT -
-const TechStack = () => {
-    return ((0, jsx_runtime_1.jsx)(react_1.default.Fragment, { children: (0, jsx_runtime_1.jsx)("div", { children: (0, jsx_runtime_1.jsx)("button", { children: "Tech Stack" }) }) }));
+const TechStack = ({ navBarButtonStyle }) => {
+    return ((0, jsx_runtime_1.jsx)(react_1.default.Fragment, { children: (0, jsx_runtime_1.jsx)("div", { children: (0, jsx_runtime_1.jsx)("button", Object.assign({ className: navBarButtonStyle }, { children: "Tech Stack" })) }) }));
 }; // * - END TechStack COMPONENT -
 // * Exporting TechStack Component
 exports.default = TechStack;

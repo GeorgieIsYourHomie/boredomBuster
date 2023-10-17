@@ -26,7 +26,6 @@ const CategoryItem: React.FC<CategoryProp> = ({ category }) => {
   const selectCategory = () => {
     setCategoryIsSelected(!categoryIsSelected);
   };
-  console.log("categoryIsSelected is:", categoryIsSelected);
 
   // * - RENDERING -
   return (
