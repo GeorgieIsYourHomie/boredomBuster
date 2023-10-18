@@ -1,7 +1,7 @@
 // * - IMPORTING -
 // React
 import React from "react";
-import { NavBarButtonStyle } from "../../Types/navBarTypes";
+import { NavBarButtonStyle } from "../../../types/navBar/navBarTypes";
 
 // * - TechStack COMPONENT -
 const TechStack: React.FC<NavBarButtonStyle> = ({ navBarButtonStyle }) => {

@@ -1,5 +1,5 @@
 // * - Category Button Styling -
-export const settingCategoryStyles = (
+export const setCategoryButtonStyle = (
   category: string,
   categoryIsSelected: boolean
 ) => {

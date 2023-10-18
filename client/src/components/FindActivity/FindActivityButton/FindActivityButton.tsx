@@ -8,6 +8,15 @@ const FindActivityButton: () => JSX.Element = () => {
   const handleFindActivityButton: () => void = () => {
     // Logging
     console.log("Find activity button clicked!");
+
+    // * Depending on selected categories, dispatch search to bored api
+    // 1. For loop iterates by two to target category values
+    //    1 - check through all properties
+    // 2. Switch statement
+    //    1 - check if category true
+    //    2 - depending on what is true, will send dispatch
+    //      -- Ex: if (randomSelected) {dispatch: FIND_RANDOM_ACTIVITY}
+
   };
 
   // * - RENDERING -
