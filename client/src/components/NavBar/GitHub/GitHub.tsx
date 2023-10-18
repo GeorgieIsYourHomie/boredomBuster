@@ -2,7 +2,7 @@
 // React
 import React from "react";
 // Types
-import { NavBarButtonStyle } from "../../Types/navBarTypes";
+import { NavBarButtonStyle } from "../../../types/navBar/navBarTypes";
 
 // * - GitHub COMPONENT -
 const GitHub: React.FC<NavBarButtonStyle> = ({ navBarButtonStyle }) => {

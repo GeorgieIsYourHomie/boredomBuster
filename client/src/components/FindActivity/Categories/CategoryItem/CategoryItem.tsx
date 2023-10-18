@@ -2,37 +2,46 @@
 // React
 import React, { useState } from "react";
 // Category Style
-import { settingCategoryStyles } from "./Styles/Styles";
-
-// Expected category prop type
-type CategoryProp = {
-  category: string;
-};
+import { setCategoryButtonStyle } from "../../../../Styles/category/categoryButtonStyle";
+// Types
+import { CategoryProp } from "../../../../types/categories/CategoryProp";
+// Utils
+import { useSetCategorySelectedState } from "../../../../utils/categories/setCategory";
 
 // * - CategoryItem COMPONENT -
-const CategoryItem: React.FC<CategoryProp> = ({ category }) => {
+const CategoryItem: React.FC<CategoryProp> = (category: CategoryProp) => {
   // * - STATE -
   // For setting the category style on click
-  const [categoryIsSelected, setCategoryIsSelected] = useState(false);
+  const [categoryButtonStyling, setCategoryButtonStyling] = useState(false);
 
   // * - DECLARATIONS -
   // Category class assignment
-  const categoryClass: string = settingCategoryStyles(
+  const categoryClass: string = setCategoryButtonStyle(
     category,
-    categoryIsSelected
+    categoryButtonStyling
   );
 
+  // Categories that were selected
+  const setCategorySelectedState = useSetCategorySelectedState;
+
   // * FUNCTIONS
-  const selectCategory = () => {
-    setCategoryIsSelected(!categoryIsSelected);
+  // Selecting category
+  const selectCategory = (event: React.MouseEvent<HTMLElement>) => {
+    // Set the selected category as pervious state(true/false)
+    setCategoryButtonStyling(!categoryButtonStyling);
+
+    // Function called here to toggle selected category state
+    // 1. Switch statement
+    //  1 - check for category name
+    //  2 - case category name, run relevant function to set (toggle on/off) state of category
+    setCategorySelectedState(event, category);
   };
-  console.log("categoryIsSelected is:", categoryIsSelected);
 
   // * - RENDERING -
   return (
     <React.Fragment>
       {/* Category */}
-      <button className={categoryClass} onClick={selectCategory}>
+      <button type="button" className={categoryClass} onClick={selectCategory}>
         {category}
       </button>
     </React.Fragment>
