@@ -1,5 +1,4 @@
 // * - IMPORTING -
-// React
 import React from "react";
 // Components
 import CategoryItem from "./CategoryItem/CategoryItem";
@@ -27,15 +26,17 @@ const Categories: () => JSX.Element = () => {
   return (
     <React.Fragment>
       <h2 className="mb-6 text-3xl">Select a Category</h2>
-      <div className=" flex flex-wrap justify-center gap-4">
+      <div className="flex flex-wrap justify-center gap-4">
         {/* Mapping through categories here, rendering a button for each category */}
-        {categories.map((category: CategoryProp): JSX.Element => {
-          return <CategoryItem key={category} category={category} />;
-        })}
+        {categories.map(
+          (category: CategoryProp): JSX.Element => (
+            <CategoryItem key={category} category={category} />
+          )
+        )}
       </div>
     </React.Fragment>
   );
-}; // * - END Categories COMPONENT -
+};
 
 // * Exporting Categories Component
 export default Categories;
