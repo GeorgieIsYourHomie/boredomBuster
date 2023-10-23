@@ -25,25 +25,32 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
 // * - IMPORTING -
-// React
 const react_1 = __importStar(require("react"));
 // Category Style
-const Styles_1 = require("./Styles/Styles");
+const categoryButtonStyle_1 = require("../../../../Styles/category/categoryButtonStyle");
+const categoryState_1 = require("../../../../hooks/category/categoryState");
 // * - CategoryItem COMPONENT -
 const CategoryItem = ({ category }) => {
     // * - STATE -
     // For setting the category style on click
-    const [categoryIsSelected, setCategoryIsSelected] = (0, react_1.useState)(false);
+    const [categoryButtonStyling, setCategoryButtonStyling] = (0, react_1.useState)(false);
     // * - DECLARATIONS -
-    // Category class assignment
-    const categoryClass = (0, Styles_1.settingCategoryStyles)(category, categoryIsSelected);
+    // Category class assignment for styling
+    const categoryClass = (0, categoryButtonStyle_1.setCategoryButtonStyle)(category, categoryButtonStyling);
+    // Categories that were selected
+    const toggleCategory = (0, categoryState_1.useCategoryState)().toggleCategory;
     // * FUNCTIONS
-    const selectCategory = () => {
-        setCategoryIsSelected(!categoryIsSelected);
+    // Selecting category
+    const selectCategory = (event) => {
+        // Prevent default event
+        event.preventDefault();
+        // Set the selected category as previous state (true/false)
+        setCategoryButtonStyling(!categoryButtonStyling);
+        // Function called here to toggle selected category state
+        toggleCategory(category);
     };
-    console.log("categoryIsSelected is:", categoryIsSelected);
     // * - RENDERING -
-    return ((0, jsx_runtime_1.jsx)(react_1.default.Fragment, { children: (0, jsx_runtime_1.jsx)("button", Object.assign({ className: categoryClass, onClick: selectCategory }, { children: category })) }));
-}; // * - END CategoryItem COMPONENT -
+    return ((0, jsx_runtime_1.jsx)(react_1.default.Fragment, { children: (0, jsx_runtime_1.jsx)("button", Object.assign({ type: "button", className: categoryClass, onClick: selectCategory }, { children: category })) }));
+};
 // * Exporting CategoryItem Component
 exports.default = CategoryItem;
