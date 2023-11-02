@@ -23,6 +23,7 @@ const Categories = () => {
         "Busywork",
         "Music",
     ];
+    // * DECLARATIONS
     // * - RENDERING -
     return ((0, jsx_runtime_1.jsxs)(react_1.default.Fragment, { children: [(0, jsx_runtime_1.jsx)("h2", Object.assign({ className: "mb-6 text-3xl" }, { children: "Select a Category" })), (0, jsx_runtime_1.jsx)("div", Object.assign({ className: "flex flex-wrap justify-center gap-4" }, { children: categories.map((category) => ((0, jsx_runtime_1.jsx)(CategoryItem_1.default, { category: category }, category))) }))] }));
 };

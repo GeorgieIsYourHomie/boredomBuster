@@ -10,6 +10,8 @@ const react_1 = __importDefault(require("react"));
 // Components
 const FindActivityButton_1 = __importDefault(require("./FindActivityButton/FindActivityButton"));
 const Categories_1 = __importDefault(require("./Categories/Categories"));
+// Hooks
+const categoryState_1 = require("../../hooks/category/categoryState");
 // * - FindActivityButton COMPONENT -
 const FindActivity = () => {
     // * 1. Categories data structure(in Categories or module)
@@ -21,8 +23,11 @@ const FindActivity = () => {
     // 1. Object properties (categories) will be looped through then switch statement, checking if they're true (selected)
     // 2. If true, will send dispatch for their info
     // * 3. Create type for categories data structure
+    // * - DECLARATIONS -
+    // All chosen categories state
+    const { chosenCategories, toggleCategory } = (0, categoryState_1.useCategoryState)();
     // * - RENDERING -
-    return ((0, jsx_runtime_1.jsx)(react_1.default.Fragment, { children: (0, jsx_runtime_1.jsxs)("div", Object.assign({ className: "max-w-xl rounded-lg border border-black bg-white p-4 shadow-[4px_8px_30px_-5px_rgba(0,0,0,0.3)]" }, { children: [(0, jsx_runtime_1.jsx)(Categories_1.default, {}), (0, jsx_runtime_1.jsx)(FindActivityButton_1.default, {})] })) }));
+    return ((0, jsx_runtime_1.jsx)(react_1.default.Fragment, { children: (0, jsx_runtime_1.jsxs)("div", Object.assign({ className: "max-w-xl rounded-lg border border-black bg-white p-4 shadow-[4px_8px_30px_-5px_rgba(0,0,0,0.3)]" }, { children: [(0, jsx_runtime_1.jsx)(Categories_1.default, { chosenCategories: chosenCategories, toggleCategory: toggleCategory }), (0, jsx_runtime_1.jsx)(FindActivityButton_1.default, {})] })) }));
 }; // * - END FindActivityButton COMPONENT -
 // * Exporting FindActivityButton Component
 exports.default = FindActivity;

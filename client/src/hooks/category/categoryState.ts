@@ -1,14 +1,8 @@
-// * - IMPORTING -
-// React
 import { useState } from "react";
-// Types
 import { CategoryProp } from "../../types/categories/CategoryProp";
-import { SelectedCategoriesState } from "../../types/categories/SelectedCategoriesState";
+import { SelectedCategoriesState } from "../../types/categories/Categories";
 
-// * Custom hook for managing category state
 export const useCategoryState = () => {
-  // * - STATE -
-  // All categories
   const [selectedCategories, setSelectedCategories] =
     useState<SelectedCategoriesState>({
       Random: false,
@@ -23,18 +17,39 @@ export const useCategoryState = () => {
       Music: false,
     });
 
-  // * Function to toggle selected category
+  const [chosenCategories, setChosenCategories] = useState<string[]>([]);
+
+  // Function to toggle chosen category
+  const toggleChosenCategory = (category: CategoryProp) => {
+    setChosenCategories((prevChosenCategories) => {
+      const isCategorySelected = prevChosenCategories.includes(category);
+      if (isCategorySelected) {
+        // Return a new array without the category
+        return prevChosenCategories.filter(
+          (chosenCategory) => chosenCategory !== category
+        );
+      } else {
+        // Return a new array with the added category
+        return [...prevChosenCategories, category];
+      }
+    });
+  };
+
+  // Function to toggle selected category
   const toggleCategory = (category: CategoryProp) => {
-    // Targeting category by argument and setting it to the opposite value
+    // Updating the state for all categories
     setSelectedCategories((prevState) => ({
       ...prevState,
       [category]: !prevState[category],
     }));
+
+    // Toggle chosen category in the array
+    toggleChosenCategory(category);
   };
 
-  // * Returning category state and state toggle function
   return {
     selectedCategories,
+    chosenCategories,
     toggleCategory,
   };
 };
