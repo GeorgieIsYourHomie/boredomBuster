@@ -8,7 +8,6 @@ const jsx_runtime_1 = require("react/jsx-runtime");
 const react_1 = __importDefault(require("react"));
 // Components
 const CategoryItem_1 = __importDefault(require("./CategoryItem/CategoryItem"));
-// import { SelectedCategoriesState } from "../../../types/categories/Categories";
 // * - Categories COMPONENT -
 const Categories = ({ selectedCategories, chosenCategories, toggleCategory, }) => {
     // Array of all categories

@@ -6,7 +6,6 @@ import CategoryItem from "./CategoryItem/CategoryItem";
 import { CategoryProp } from "../../../types/categories/CategoryTypes";
 import { AllCategories } from "../../../types/categories/CategoryTypes";
 import { CategoriesStateHookProps } from "../../../types/categories/CategoryTypes";
-// import { SelectedCategoriesState } from "../../../types/categories/Categories";
 
 // * - Categories COMPONENT -
 const Categories: React.FC<CategoriesStateHookProps> = ({
