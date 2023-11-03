@@ -3,11 +3,17 @@ import React from "react";
 // Components
 import CategoryItem from "./CategoryItem/CategoryItem";
 // Types
-import { CategoryProp } from "../../../types/categories/CategoryProp";
-import { AllCategories } from "../../../types/categories/Categories";
+import { CategoryProp } from "../../../types/categories/CategoryTypes";
+import { AllCategories } from "../../../types/categories/CategoryTypes";
+import { CategoriesStateHookProps } from "../../../types/categories/CategoryTypes";
+// import { SelectedCategoriesState } from "../../../types/categories/Categories";
 
 // * - Categories COMPONENT -
-const Categories: () => JSX.Element = () => {
+const Categories: React.FC<CategoriesStateHookProps> = ({
+  selectedCategories,
+  chosenCategories,
+  toggleCategory,
+}) => {
   // Array of all categories
   const categories: AllCategories = [
     "Random",
@@ -22,6 +28,8 @@ const Categories: () => JSX.Element = () => {
     "Music",
   ];
 
+  // * DECLARATIONS
+
   // * - RENDERING -
   return (
     <React.Fragment>
@@ -30,7 +38,13 @@ const Categories: () => JSX.Element = () => {
         {/* Mapping through categories here, rendering a button for each category */}
         {categories.map(
           (category: CategoryProp): JSX.Element => (
-            <CategoryItem key={category} category={category} />
+            <CategoryItem
+              key={category}
+              category={category}
+              selectedCategories={selectedCategories}
+              chosenCategories={chosenCategories}
+              toggleCategory={toggleCategory}
+            />
           )
         )}
       </div>

@@ -1,22 +1,18 @@
 // * - IMPORTING -
 // React
 import React from "react";
+// Types
+import { ChosenCategories } from "../../../types/categories/CategoryTypes";
 
 // * - FindActivityButton COMPONENT -
-const FindActivityButton: () => JSX.Element = () => {
+const FindActivityButton: React.FC<{ chosenCategories: ChosenCategories }> = ({
+  chosenCategories,
+}) => {
   // * - FUNCTIONS -
-  const handleFindActivityButton: () => void = () => {
-    // Logging
-    console.log("Find activity button clicked!");
-
-    // * Depending on selected categories, dispatch search to bored api
-    // 1. For loop iterates by two to target category values
-    //    1 - check through all properties
-    // 2. Switch statement
-    //    1 - check if category true
-    //    2 - depending on what is true, will send dispatch
-    //      -- Ex: if (randomSelected) {dispatch: FIND_RANDOM_ACTIVITY}
-
+  // Function to loop through chosenCategories
+  //  If value matches any category, send dispatch
+  const handleFindActivityButton = () => {
+    console.log("chosenCategories are:", chosenCategories);
   };
 
   // * - RENDERING -

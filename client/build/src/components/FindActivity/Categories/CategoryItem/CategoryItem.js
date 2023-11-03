@@ -28,17 +28,14 @@ const jsx_runtime_1 = require("react/jsx-runtime");
 const react_1 = __importStar(require("react"));
 // Category Style
 const categoryButtonStyle_1 = require("../../../../Styles/category/categoryButtonStyle");
-const categoryState_1 = require("../../../../hooks/category/categoryState");
 // * - CategoryItem COMPONENT -
-const CategoryItem = ({ category }) => {
+const CategoryItem = ({ category, selectedCategories, chosenCategories, toggleCategory, }) => {
     // * - STATE -
     // For setting the category style on click
     const [categoryButtonStyling, setCategoryButtonStyling] = (0, react_1.useState)(false);
     // * - DECLARATIONS -
     // Category class assignment for styling
     const categoryClass = (0, categoryButtonStyle_1.setCategoryButtonStyle)(category, categoryButtonStyling);
-    // Categories that were selected
-    const toggleCategory = (0, categoryState_1.useCategoryState)().toggleCategory;
     // * FUNCTIONS
     // Selecting category
     const selectCategory = (event) => {
@@ -49,6 +46,11 @@ const CategoryItem = ({ category }) => {
         // Function called here to toggle selected category state
         toggleCategory(category);
     };
+    // * Use useEffect to log the updated state
+    (0, react_1.useEffect)(() => {
+        console.log(`Category: ${category}, State: ${selectedCategories[category]}`);
+        console.log("chosenCategories is:", chosenCategories);
+    }, [selectedCategories, chosenCategories, category]);
     // * - RENDERING -
     return ((0, jsx_runtime_1.jsx)(react_1.default.Fragment, { children: (0, jsx_runtime_1.jsx)("button", Object.assign({ type: "button", className: categoryClass, onClick: selectCategory }, { children: category })) }));
 };
