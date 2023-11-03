@@ -1,15 +1,13 @@
 // * - IMPORTING -
 // React
 import React from "react";
-// Category custom hook
-import { useCategoryState } from "../../../hooks/category/categoryState";
+// Types
+import { ChosenCategories } from "../../../types/categories/CategoryTypes";
 
 // * - FindActivityButton COMPONENT -
-const FindActivityButton: () => JSX.Element = () => {
-  // * - DECLARATIONS -
-  // All chosen categories state
-  const { chosenCategories } = useCategoryState();
-
+const FindActivityButton: React.FC<{ chosenCategories: ChosenCategories }> = ({
+  chosenCategories,
+}) => {
   // * - FUNCTIONS -
   // Function to loop through chosenCategories
   //  If value matches any category, send dispatch

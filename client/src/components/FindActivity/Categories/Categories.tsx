@@ -3,9 +3,9 @@ import React from "react";
 // Components
 import CategoryItem from "./CategoryItem/CategoryItem";
 // Types
-import { CategoryProp } from "../../../types/categories/CategoryProp";
-import { AllCategories } from "../../../types/categories/Categories";
-import { CategoriesStateHookProps } from "../../../types/categories/Categories";
+import { CategoryProp } from "../../../types/categories/CategoryTypes";
+import { AllCategories } from "../../../types/categories/CategoryTypes";
+import { CategoriesStateHookProps } from "../../../types/categories/CategoryTypes";
 // import { SelectedCategoriesState } from "../../../types/categories/Categories";
 
 // * - Categories COMPONENT -

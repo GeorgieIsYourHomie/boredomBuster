@@ -7,13 +7,8 @@ const jsx_runtime_1 = require("react/jsx-runtime");
 // * - IMPORTING -
 // React
 const react_1 = __importDefault(require("react"));
-// Category custom hook
-const categoryState_1 = require("../../../hooks/category/categoryState");
 // * - FindActivityButton COMPONENT -
-const FindActivityButton = () => {
-    // * - DECLARATIONS -
-    // All chosen categories state
-    const { chosenCategories } = (0, categoryState_1.useCategoryState)();
+const FindActivityButton = ({ chosenCategories, }) => {
     // * - FUNCTIONS -
     // Function to loop through chosenCategories
     //  If value matches any category, send dispatch

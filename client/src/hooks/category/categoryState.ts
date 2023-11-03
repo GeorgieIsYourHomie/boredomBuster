@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { CategoryProp } from "../../types/categories/CategoryProp";
-import { SelectedCategoriesState } from "../../types/categories/Categories";
+import { CategoryProp } from "../../types/categories/CategoryTypes";
+import { SelectedCategoriesState } from "../../types/categories/CategoryTypes";
 
 export const useCategoryState = () => {
+  // * - STATE -
+  // All categories selected/unselected
   const [selectedCategories, setSelectedCategories] =
     useState<SelectedCategoriesState>({
       Random: false,
@@ -17,9 +19,11 @@ export const useCategoryState = () => {
       Music: false,
     });
 
+  // Chosen categories, selected/unselected
   const [chosenCategories, setChosenCategories] = useState<string[]>([]);
 
-  // Function to toggle chosen category
+  // * - FUNCTIONS -
+  // * Function to toggle chosen category
   const toggleChosenCategory = (category: CategoryProp) => {
     setChosenCategories((prevChosenCategories) => {
       const isCategorySelected = prevChosenCategories.includes(category);
@@ -35,7 +39,7 @@ export const useCategoryState = () => {
     });
   };
 
-  // Function to toggle selected category
+  // * Function to toggle selected category
   const toggleCategory = (category: CategoryProp) => {
     // Updating the state for all categories
     setSelectedCategories((prevState) => ({

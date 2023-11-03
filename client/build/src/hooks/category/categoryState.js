@@ -3,6 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.useCategoryState = void 0;
 const react_1 = require("react");
 const useCategoryState = () => {
+    // * - STATE -
+    // All categories selected/unselected
     const [selectedCategories, setSelectedCategories] = (0, react_1.useState)({
         Random: false,
         Recreation: false,
@@ -15,8 +17,10 @@ const useCategoryState = () => {
         Busywork: false,
         Music: false,
     });
+    // Chosen categories, selected/unselected
     const [chosenCategories, setChosenCategories] = (0, react_1.useState)([]);
-    // Function to toggle chosen category
+    // * - FUNCTIONS -
+    // * Function to toggle chosen category
     const toggleChosenCategory = (category) => {
         setChosenCategories((prevChosenCategories) => {
             const isCategorySelected = prevChosenCategories.includes(category);
@@ -30,7 +34,7 @@ const useCategoryState = () => {
             }
         });
     };
-    // Function to toggle selected category
+    // * Function to toggle selected category
     const toggleCategory = (category) => {
         // Updating the state for all categories
         setSelectedCategories((prevState) => (Object.assign(Object.assign({}, prevState), { [category]: !prevState[category] })));

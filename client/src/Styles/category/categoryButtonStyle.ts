@@ -1,4 +1,4 @@
-import { CategoryProp } from "../../types/categories/CategoryProp";
+import { CategoryProp } from "../../types/categories/CategoryTypes";
 
 // * - Category Button Styling -
 export const setCategoryButtonStyle = (

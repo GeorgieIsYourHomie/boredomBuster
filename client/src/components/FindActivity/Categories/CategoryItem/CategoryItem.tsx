@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 // Category Style
 import { setCategoryButtonStyle } from "../../../../Styles/category/categoryButtonStyle";
 // Types
-import { CategoryItemProps } from "../../../../types/categories/CategoryProp";
-import { CategoriesStateHookProps } from "../../../../types/categories/Categories";
+import { CategoryItemProps } from "../../../../types/categories/CategoryTypes";
+import { CategoriesStateHookProps } from "../../../../types/categories/CategoryTypes";
 
 // * - TYPES -
 // * Toggle Type Prop
