@@ -10,7 +10,7 @@ const react_2 = require("react");
 // Category Style
 const categoryButtonStyle_1 = require("../../../../Styles/category/categoryButtonStyle");
 // * - CategoryItem COMPONENT -
-const CategoryItem = ({ category, selectedCategories, chosenCategories, toggleCategory, }) => {
+const CategoryItem = ({ category, toggleCategory, }) => {
     // * - STATE -
     // For setting the category style on click
     const [categoryButtonStyling, setCategoryButtonStyling] = (0, react_2.useState)(false);
@@ -26,12 +26,7 @@ const CategoryItem = ({ category, selectedCategories, chosenCategories, toggleCa
         setCategoryButtonStyling(!categoryButtonStyling);
         // Function called here to toggle selected category state
         toggleCategory(category);
-    };
-    // * Use useEffect to log the updated state
-    (0, react_2.useEffect)(() => {
-        console.log(`Category: ${category}, State: ${selectedCategories[category]}`);
-        console.log("chosenCategories is:", chosenCategories);
-    }, [selectedCategories, chosenCategories, category]);
+    }; // * end selectCategory
     // * - RENDERING -
     return ((0, jsx_runtime_1.jsx)(react_1.default.Fragment, { children: (0, jsx_runtime_1.jsx)("button", Object.assign({ type: "button", className: categoryClass, onClick: selectCategory }, { children: category })) }));
 };

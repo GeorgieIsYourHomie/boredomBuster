@@ -9,24 +9,31 @@ import { Activity } from "../../../shared/models/activity";
 const activityRouter = Router();
 
 // * GET request for random activity and category
-activityRouter.get("/", async (req: Request, res: Response): Promise<void> => {
-  try {
-    // Declaring activity
-    const randomActivityAndCategory: Activity | void = await getRandomActivityAndCategory(req, res);
+activityRouter.get(
+  "/random",
+  async (req: Request, res: Response): Promise<void> => {
+    try {
+      // Declaring activity
+      const randomActivityAndCategory: Activity | void =
+        await getRandomActivityAndCategory(req, res);
 
-    // If true, send data
-    if (randomActivityAndCategory) {
-      res.json(randomActivityAndCategory);
-      console.log("Request sent! Random activity and category is:", randomActivityAndCategory);
-    } // If void, send error 
-    else {
-      res.status(500).send("Failed to get random activity and category.");
+      // If true, send data
+      if (randomActivityAndCategory) {
+        res.json(randomActivityAndCategory);
+        console.log(
+          "Request sent! Random activity and category is:",
+          randomActivityAndCategory
+        );
+      } // If void, send error
+      else {
+        res.status(500).send("Failed to get random activity and category.");
+      }
+    } catch (error) {
+      console.error("Error handling random activity request:", error);
+      res.status(500).send("Internal server error.");
     }
-  } catch (error) {
-    console.error("Error handling random activity request:", error);
-    res.status(500).send("Internal server error.");
   }
-});
+); // * end get random activity
 
 // * Exporting Router
 export default activityRouter;

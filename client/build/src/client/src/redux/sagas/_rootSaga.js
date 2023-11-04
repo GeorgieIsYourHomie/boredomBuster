@@ -7,12 +7,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const effects_1 = require("redux-saga/effects");
 // Import your individual sagas here
 // import { watchSomeFeatureSaga } from '../features/someFeature/sagas';
-const checklistsSaga_1 = __importDefault(require("./checklistsSaga"));
+const categoriesSaga_1 = __importDefault(require("./categoriesSaga"));
 function* rootSaga() {
     yield (0, effects_1.all)([
         // watchSomeFeatureSaga(),
         // Add other sagas here
-        (0, checklistsSaga_1.default)(),
+        (0, categoriesSaga_1.default)(),
     ]);
 }
 exports.default = rootSaga;
