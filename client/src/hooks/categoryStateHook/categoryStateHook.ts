@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CategoryProp } from "../../types/categories/CategoryTypes";
 import { SelectedCategoriesState } from "../../types/categories/CategoryTypes";
 
+// * - useCategoryState HOOK -
 export const useCategoryState = () => {
   // * - STATE -
   // All categories selected/unselected
