@@ -17,7 +17,7 @@ const activity_controller_1 = require("../controllers/activity.controller"); // 
 // Express Router
 const activityRouter = (0, express_1.Router)();
 // * GET request for random activity and category
-activityRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+activityRouter.get("/random", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Declaring activity
         const randomActivityAndCategory = yield (0, activity_controller_1.getRandomActivityAndCategory)(req, res);
@@ -25,7 +25,7 @@ activityRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function
         if (randomActivityAndCategory) {
             res.json(randomActivityAndCategory);
             console.log("Request sent! Random activity and category is:", randomActivityAndCategory);
-        } // If void, send error 
+        } // If void, send error
         else {
             res.status(500).send("Failed to get random activity and category.");
         }
@@ -34,6 +34,6 @@ activityRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function
         console.error("Error handling random activity request:", error);
         res.status(500).send("Internal server error.");
     }
-}));
+})); // * end get random activity
 // * Exporting Router
 exports.default = activityRouter;

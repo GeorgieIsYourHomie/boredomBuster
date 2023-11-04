@@ -1,19 +1,25 @@
 // * - IMPORTING -
 // Redux
 import { put, takeLatest } from "redux-saga/effects";
+// Utils
+import handleFindActivityUtils from "../../utils/handleFindActivityUtils";
 // Axios
-// import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 // Types
 import { DispatchedActivityType } from "../../types/categories/CategoryTypes";
 import type { ChosenCategories } from "../../types/categories/CategoryTypes";
+import { Activity } from "../../../../shared/models/activity";
 
 // * - LISTENER SAGA -
 // * Categories Listener Saga
 export default function* categoriesSaga() {
+  // Find activities
   yield takeLatest(
     "SEARCH_CHOSEN_CATEGORIES_ACTIVITY",
     searchChosenCategoryActivity
   );
+  // Find random activity
+  yield takeLatest("FIND_RANDOM_ACTIVITY", findRandomActivity);
 } // * end categoriesSaga
 
 // * - ACTION SAGAS -
@@ -25,20 +31,40 @@ function* searchChosenCategoryActivity(action: DispatchedActivityType) {
     `\nsearchChosenCategoryActivity running due to action:
     "${action.type}"`
   );
-
   try {
-    // Declaring chosen categories as payload
-    const chosenCategories: ChosenCategories  = action.payload;
+    // Check if the payload is of type ChosenCategories (i.e., an array of strings)
+    if (Array.isArray(action.payload)) {
+      // Declaring chosen categories as payload
+      const chosenCategories: ChosenCategories = action.payload;
 
-
-    // For loop with switch statement, discerning category actions for activities
-    yield put({ type: "S", payload: chosenCategories });
-
-    // Dispatch action to checklists reducer, setting the global state to data
-  } catch {
-    console.log("\nError getting all checklists.");
+      // Will find activity depending on the categories
+      yield* handleFindActivityUtils(chosenCategories);
+    } else {
+      // Handle the case where payload is not ChosenCategories
+      console.error(
+        "Payload is not an array of chosen categories:",
+        action.payload
+      );
+    }
+  } catch (error) {
+    console.error("\nError finding activities based on categories:", error);
   }
 } // * end searchChosenCategoryActivity
 
 // * Find "Random Activity"
 // Gen function to search for random activity
+function* findRandomActivity() {
+  try {
+    // Fetching random activity
+    const response: AxiosResponse<Activity> =
+      yield axios.get(`/api/activity/random`);
+
+    // Accessing response data (random activity)
+    const randomActivity: Activity = response.data;
+
+    // Dispatch action to store random activity the updated checklist
+    yield put({ type: "SET_RANDOM_ACTIVITY", payload: randomActivity });
+  } catch (error) {
+    console.error("\nError finding random activity:", error);
+  }
+}
