@@ -3,5 +3,5 @@
   "compilerOptions": {
     "outDir": "./build/src"
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/redux/sagas/checklistsSaga.js", "src/redux/store.ts"]
 }
