@@ -1,7 +1,11 @@
 // * - IMPORTING -
 // React
 import React from "react";
+// React DOM
 import ReactDOM from "react-dom/client";
+// Redux
+import { Provider } from "react-redux";
+import store from "./redux/store";
 // Tailwind compiled file
 import "../src/output.css";
 // CSS
@@ -15,6 +19,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );

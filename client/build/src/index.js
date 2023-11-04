@@ -7,7 +7,11 @@ const jsx_runtime_1 = require("react/jsx-runtime");
 // * - IMPORTING -
 // React
 const react_1 = __importDefault(require("react"));
+// React DOM
 const client_1 = __importDefault(require("react-dom/client"));
+// Redux
+// import { Provider } from "react-redux";
+// import store from "./redux/store";
 // Tailwind compiled file
 require("../src/output.css");
 // CSS

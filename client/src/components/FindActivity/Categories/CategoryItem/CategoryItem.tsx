@@ -1,5 +1,6 @@
 // * - IMPORTING -
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useEffect, useState } from "react";
 // Category Style
 import { setCategoryButtonStyle } from "../../../../Styles/category/categoryButtonStyle";
 // Types

@@ -23,3 +23,9 @@ export type CategoryProp = string;
 export type CategoryItemProps = {
   category: string;
 };
+
+// * - DISPATCH ACTION TYPE -
+export interface SearchChosenCategoryActivity {
+  type: string;
+  payload: ChosenCategories;
+}
