@@ -1,19 +1,30 @@
 // * - IMPORTING -
 // React
 import React from "react";
+// Redux
+import { useAppDispatch } from "../../../hooks/reduxHook/reduxHook";
 // Types
-import { ChosenCategories } from "../../../types/categories/CategoryTypes";
+import type { ChosenCategories } from "../../../types/categories/CategoryTypes";
 
 // * - FindActivityButton COMPONENT -
 const FindActivityButton: React.FC<{ chosenCategories: ChosenCategories }> = ({
   chosenCategories,
 }) => {
+  // * - DECLARATIONS -
+  const dispatch = useAppDispatch();
+
   // * - FUNCTIONS -
-  // Function to loop through chosenCategories
+  // * Function to loop through chosenCategories
   //  If value matches any category, send dispatch
   const handleFindActivityButton = () => {
     console.log("chosenCategories are:", chosenCategories);
-  };
+
+    // Dispatching action and payload of chosenCategories for activities
+    dispatch({
+      type: "SEARCH_CHOSEN_CATEGORIES_ACTIVITY",
+      payload: chosenCategories,
+    });
+  }; // * end handleFindActivityButton
 
   // * - RENDERING -
   return (

@@ -5,7 +5,7 @@ import React from "react";
 import FindActivityButton from "./FindActivityButton/FindActivityButton";
 import Categories from "./Categories/Categories";
 // Hooks
-import { useCategoryState } from "../../hooks/category/categoryState";
+import { useCategoryState } from "../../hooks/categoryStateHook/categoryStateHook";
 
 // * - FindActivityButton COMPONENT -
 const FindActivity: () => JSX.Element = () => {
