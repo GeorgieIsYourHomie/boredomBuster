@@ -8,7 +8,7 @@ export type AllCategories = string[];
 
 // * -  CATEGORIES STATE HOOK TYPES -
 // Categories state hook chosen categories
-export type ChosenCategories = string[];
+export type ChosenCategories = string[] | undefined | string;
 // Categories state hook prop type
 export type CategoriesStateHookProps = {
   selectedCategories: SelectedCategoriesState;
@@ -25,7 +25,8 @@ export type CategoryItemProps = {
 };
 
 // * - DISPATCH ACTION TYPE -
-export interface SearchChosenCategoryActivity {
+// Type for chosenCategory action and payload
+export interface DispatchedActivityType {
   type: string;
-  payload: ChosenCategories;
+  payload?: ChosenCategories | string;
 }

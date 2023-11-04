@@ -1,6 +1,6 @@
 // * - IMPORTING -
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 // Category Style
 import { setCategoryButtonStyle } from "../../../../Styles/category/categoryButtonStyle";
 // Types
@@ -14,8 +14,6 @@ type CombinedCategoryItemProps = CategoriesStateHookProps & CategoryItemProps;
 // * - CategoryItem COMPONENT -
 const CategoryItem: React.FC<CombinedCategoryItemProps> = ({
   category,
-  selectedCategories,
-  chosenCategories,
   toggleCategory,
 }) => {
   // * - STATE -
@@ -40,16 +38,7 @@ const CategoryItem: React.FC<CombinedCategoryItemProps> = ({
 
     // Function called here to toggle selected category state
     toggleCategory(category);
-  };
-
-  // * Use useEffect to log the updated state
-  useEffect(() => {
-    console.log(
-      `Category: ${category}, State: ${selectedCategories[category]}`
-    );
-
-    console.log("chosenCategories is:", chosenCategories);
-  }, [selectedCategories, chosenCategories, category]);
+  }; // * end selectCategory
 
   // * - RENDERING -
   return (

@@ -4,7 +4,7 @@ import { put, takeLatest } from "redux-saga/effects";
 // Axios
 // import axios from "axios";
 // Types
-import type { SearchChosenCategoryActivity } from "../../types/categories/CategoryTypes";
+import { DispatchedActivityType } from "../../types/categories/CategoryTypes";
 import type { ChosenCategories } from "../../types/categories/CategoryTypes";
 
 // * - LISTENER SAGA -
@@ -19,19 +19,20 @@ export default function* categoriesSaga() {
 // * - ACTION SAGAS -
 // * Find Activities
 // Gen function to search for activities based on category
-function* searchChosenCategoryActivity(action: SearchChosenCategoryActivity) {
+function* searchChosenCategoryActivity(action: DispatchedActivityType) {
   // Logging
   console.log(
-    "searchChosenCategoryActivity running due to action:",
-    action.type
+    `\nsearchChosenCategoryActivity running due to action:
+    "${action.type}"`
   );
 
   try {
     // Declaring chosen categories as payload
-    const chosenCategories: ChosenCategories = action.payload;
+    const chosenCategories: ChosenCategories  = action.payload;
+
 
     // For loop with switch statement, discerning category actions for activities
-    yield put({ type: "S", payload: chosenCategories});
+    yield put({ type: "S", payload: chosenCategories });
 
     // Dispatch action to checklists reducer, setting the global state to data
   } catch {

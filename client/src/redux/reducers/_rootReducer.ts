@@ -1,17 +1,13 @@
-import { SearchChosenCategoryActivity } from "../../types/categories/CategoryTypes";
+// * - IMPORTING -
+// Redux
 import { combineReducers } from "@reduxjs/toolkit";
-// Import your slice reducers here
-// import someFeatureReducer from '../features/someFeature/someFeatureSlice';
+// Reducer
+import errorReducer from "./errorReducer";
 
-const dummyReducer = (state = [], action: SearchChosenCategoryActivity) => [
-  ...state,
-  action,
-];
-
+// * - Root Reducer -
 const rootReducer = combineReducers({
-  // someFeature: someFeatureReducer,
-  // Add other slice reducers here
-  dummyReducer,
-});
+  errorReducer,
+}); // * end rootReducer
 
+// * Exporting rootReducer
 export default rootReducer;

@@ -6,6 +6,7 @@ import FindActivityButton from "./FindActivityButton/FindActivityButton";
 import Categories from "./Categories/Categories";
 // Hooks
 import { useCategoryState } from "../../hooks/categoryStateHook/categoryStateHook";
+import FindActivityError from "./FindActivityButton/Error/FindActivityError";
 
 // * - FindActivityButton COMPONENT -
 const FindActivity: () => JSX.Element = () => {
@@ -24,6 +25,7 @@ const FindActivity: () => JSX.Element = () => {
           chosenCategories={chosenCategories}
           toggleCategory={toggleCategory}
         />
+        <FindActivityError />
         <FindActivityButton chosenCategories={chosenCategories} />
       </div>
     </React.Fragment>
