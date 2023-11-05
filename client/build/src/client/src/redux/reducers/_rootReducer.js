@@ -6,11 +6,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // * - IMPORTING -
 // Redux
 const toolkit_1 = require("@reduxjs/toolkit");
-// Reducer
+// Reducers
 const errorReducer_1 = __importDefault(require("./errorReducer"));
+const randomActivityReducer_1 = __importDefault(require("./activitiesReducer/randomActivityReducer"));
+const recreationActivityReducer_1 = __importDefault(require("./activitiesReducer/recreationActivityReducer"));
 // * - Root Reducer -
 const rootReducer = (0, toolkit_1.combineReducers)({
     errorReducer: errorReducer_1.default,
+    randomActivityReducer: randomActivityReducer_1.default,
+    recreationActivityReducer: recreationActivityReducer_1.default,
 }); // * end rootReducer
 // * Exporting rootReducer
 exports.default = rootReducer;

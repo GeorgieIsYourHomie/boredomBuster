@@ -13,12 +13,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // Express
 const express_1 = require("express");
 // BoredAPI Requests from Controllers
-const randomActivityController_1 = require("../controllers/activityController/randomActivityController"); // random activity
-const recreationActivityController_1 = require("../controllers/activityController/recreationActivityController"); // recreational activity
+const randomActivityController_1 = require("../../controllers/activityController/randomActivityController"); // random activity
 // Express Router
-const activityRouter = (0, express_1.Router)();
-// * GET request for random activity
-activityRouter.get("/random", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const randomActivityRouter = (0, express_1.Router)();
+// * GET Request Random Activity
+randomActivityRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Declaring activity
         const randomActivity = yield (0, randomActivityController_1.getRandomActivity)(req, res);
@@ -35,25 +34,6 @@ activityRouter.get("/random", (req, res) => __awaiter(void 0, void 0, void 0, fu
         console.error("Error handling random activity request:", error);
         res.status(500).send("Internal server error.");
     }
-})); // * end get random activity
-// * GET request for recreational activity
-activityRouter.get("/recreational", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        // Declaring activity
-        const recreationalActivity = yield (0, recreationActivityController_1.getRecreationActivity)(req, res);
-        // If true, send data
-        if (recreationalActivity) {
-            res.json(recreationalActivity);
-            console.log("Request sent! Recreational activity is:", recreationalActivity);
-        } // If void, send error
-        else {
-            res.status(500).send("Failed to get recreational activity.");
-        }
-    }
-    catch (error) {
-        console.error("Error handling recreational activity request:", error);
-        res.status(500).send("Internal server error.");
-    }
-})); // * end get random activity
+})); // * end GET Request Random Activity
 // * Exporting Router
-exports.default = activityRouter;
+exports.default = randomActivityRouter;
