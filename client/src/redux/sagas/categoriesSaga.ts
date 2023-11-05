@@ -20,6 +20,8 @@ export default function* categoriesSaga() {
   );
   // Find random activity
   yield takeLatest("FIND_RANDOM_ACTIVITY", findRandomActivity);
+  // Find recreational activity
+  yield takeLatest("FIND_RECREATION_ACTIVITY", findRecreationalActivity);
 } // * end categoriesSaga
 
 // * - ACTION SAGAS -
@@ -51,20 +53,43 @@ function* searchChosenCategoryActivity(action: DispatchedActivityType) {
   }
 } // * end searchChosenCategoryActivity
 
-// * Find "Random Activity"
+// * Find Random Activity
 // Gen function to search for random activity
 function* findRandomActivity() {
   try {
     // Fetching random activity
-    const response: AxiosResponse<Activity> =
-      yield axios.get(`/api/activity/random`);
+    const response: AxiosResponse<Activity> = yield axios.get(
+      `/bored/activity/random`
+    );
 
     // Accessing response data (random activity)
     const randomActivity: Activity = response.data;
 
-    // Dispatch action to store random activity the updated checklist
+    // Dispatch action to set new random activity
     yield put({ type: "SET_RANDOM_ACTIVITY", payload: randomActivity });
   } catch (error) {
     console.error("\nError finding random activity:", error);
+  }
+}
+
+// * Find Recreational Activity
+// Gen function to search for recreational activity
+function* findRecreationalActivity() {
+  try {
+    // Fetching recreational activity
+    const response: AxiosResponse<Activity> = yield axios.get(
+      `/bored/activity/recreation`
+    );
+
+    // Accessing response data (recreational activity)
+    const recreationalActivity: Activity = response.data;
+
+    // Dispatch action to set new recreational activity
+    yield put({
+      type: "SET_RECREATIONAL_ACTIVITY",
+      payload: recreationalActivity,
+    });
+  } catch (error) {
+    console.error("\nError finding recreational activity:", error);
   }
 }

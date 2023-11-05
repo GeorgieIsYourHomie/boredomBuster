@@ -17,6 +17,8 @@ function* categoriesSaga() {
     yield (0, effects_1.takeLatest)("SEARCH_CHOSEN_CATEGORIES_ACTIVITY", searchChosenCategoryActivity);
     // Find random activity
     yield (0, effects_1.takeLatest)("FIND_RANDOM_ACTIVITY", findRandomActivity);
+    // Find recreational activity
+    yield (0, effects_1.takeLatest)("FIND_RECREATION_ACTIVITY", findRecreationalActivity);
 } // * end categoriesSaga
 exports.default = categoriesSaga;
 // * - ACTION SAGAS -
@@ -27,31 +29,52 @@ function* searchChosenCategoryActivity(action) {
     console.log(`\nsearchChosenCategoryActivity running due to action:
     "${action.type}"`);
     try {
-        // Declaring chosen categories as payload
-        const chosenCategories = action.payload;
-        // Will find activity depending on the categories
-        yield* (0, handleFindActivityUtils_1.default)(chosenCategories);
+        // Check if the payload is of type ChosenCategories (i.e., an array of strings)
+        if (Array.isArray(action.payload)) {
+            // Declaring chosen categories as payload
+            const chosenCategories = action.payload;
+            // Will find activity depending on the categories
+            yield* (0, handleFindActivityUtils_1.default)(chosenCategories);
+        }
+        else {
+            // Handle the case where payload is not ChosenCategories
+            console.error("Payload is not an array of chosen categories:", action.payload);
+        }
     }
     catch (error) {
         console.error("\nError finding activities based on categories:", error);
     }
 } // * end searchChosenCategoryActivity
-// * Find "Random Activity"
+// * Find Random Activity
 // Gen function to search for random activity
-function* findRandomActivity(action) {
-    // Logging
-    console.log(`\findRandomActivity running due to action:
-    "${action.type}"`);
+function* findRandomActivity() {
     try {
         // Fetching random activity
-        const response = yield axios_1.default.get(`/api/activity/random`);
+        const response = yield axios_1.default.get(`/bored/activity/random`);
         // Accessing response data (random activity)
         const randomActivity = response.data;
-        console.log("randomActivity data is:", randomActivity);
-        // // Dispatch action to store random activity the updated checklist
-        // yield put({ type: "SET_RANDOM_ACTIVITY", payload: randomActivity });
+        // Dispatch action to set new random activity
+        yield (0, effects_1.put)({ type: "SET_RANDOM_ACTIVITY", payload: randomActivity });
     }
     catch (error) {
         console.error("\nError finding random activity:", error);
+    }
+}
+// * Find Recreational Activity
+// Gen function to search for recreational activity
+function* findRecreationalActivity() {
+    try {
+        // Fetching recreational activity
+        const response = yield axios_1.default.get(`/bored/activity/random`);
+        // Accessing response data (recreational activity)
+        const recreationalActivity = response.data;
+        // Dispatch action to set new recreational activity
+        yield (0, effects_1.put)({
+            type: "SET_RECREATIONAL_ACTIVITY",
+            payload: recreationalActivity,
+        });
+    }
+    catch (error) {
+        console.error("\nError finding recreational activity:", error);
     }
 }

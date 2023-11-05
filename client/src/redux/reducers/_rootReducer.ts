@@ -4,11 +4,13 @@ import { combineReducers } from "@reduxjs/toolkit";
 // Reducers
 import errorReducer from "./errorReducer";
 import randomActivityReducer from "./activitiesReducer/randomActivityReducer";
+import recreationActivityReducer from "./activitiesReducer/recreationActivityReducer";
 
 // * - Root Reducer -
 const rootReducer = combineReducers({
   errorReducer,
   randomActivityReducer,
+  recreationActivityReducer,
 }); // * end rootReducer
 
 // * Exporting rootReducer
