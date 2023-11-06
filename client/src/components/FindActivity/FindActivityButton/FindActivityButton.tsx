@@ -6,10 +6,12 @@ import { useAppDispatch } from "../../../hooks/reduxHook/reduxHook";
 // Types
 import type { ChosenCategories } from "../../../types/categories/CategoryTypes";
 
+type FindActivityButtonProp = { chosenCategories: ChosenCategories };
+
 // * - FindActivityButton COMPONENT -
-const FindActivityButton: React.FC<{
-  chosenCategories: ChosenCategories;
-}> = ({ chosenCategories }) => {
+const FindActivityButton: React.FC<FindActivityButtonProp> = ({
+  chosenCategories,
+}) => {
   // * - DECLARATIONS -
   const dispatch = useAppDispatch();
 
@@ -33,13 +35,21 @@ const FindActivityButton: React.FC<{
       dispatch({
         type: "NO_ERRORS",
       });
+
+      // Dispatching action to toggle on toggleShowActivity
+      dispatch({
+        type: "TOGGLE_SHOW_ACTIVITY_ON",
+      });
     } else if (chosenCategories && chosenCategories?.length === 0) {
       // Error prompt dispatch here if no selected category
       dispatch({
         type: "SELECT_A_CATEGORY",
       });
 
-      console.log("Please select a category.");
+      // Dispatching action to toggle off toggleShowActivity
+      dispatch({
+        type: "TOGGLE_SHOW_ACTIVITY_OFF",
+      });
     } else {
       return;
     }

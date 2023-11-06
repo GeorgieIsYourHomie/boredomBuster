@@ -1,4 +1,7 @@
+// * - IMPORTING -
+// React
 import { useState } from "react";
+// Types
 import { CategoryProp } from "../../types/categories/CategoryTypes";
 import { SelectedCategoriesState } from "../../types/categories/CategoryTypes";
 

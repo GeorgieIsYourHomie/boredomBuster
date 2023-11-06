@@ -1,6 +1,8 @@
 // * - IMPORTING -
 import React from "react";
 import { useState } from "react";
+// Redux Hook
+import { useAppDispatch } from "../../../../hooks/reduxHook/reduxHook";
 // Category Style
 import { setCategoryButtonStyle } from "../../../../Styles/category/categoryButtonStyle";
 // Types
@@ -15,6 +17,7 @@ type CombinedCategoryItemProps = CategoriesStateHookProps & CategoryItemProps;
 const CategoryItem: React.FC<CombinedCategoryItemProps> = ({
   category,
   toggleCategory,
+  selectedCategories
 }) => {
   // * - STATE -
   // For setting the category style on click
@@ -27,6 +30,8 @@ const CategoryItem: React.FC<CombinedCategoryItemProps> = ({
     categoryButtonStyling
   );
 
+  const dispatch = useAppDispatch();
+
   // * FUNCTIONS
   // Selecting category
   const selectCategory = (event: React.MouseEvent<HTMLElement>) => {
@@ -38,6 +43,8 @@ const CategoryItem: React.FC<CombinedCategoryItemProps> = ({
 
     // Function called here to toggle selected category state
     toggleCategory(category);
+
+    dispatch({ type: "CLEAR_CATEGORY_REDUCERS", payload: selectedCategories });
   }; // * end selectCategory
 
   // * - RENDERING -

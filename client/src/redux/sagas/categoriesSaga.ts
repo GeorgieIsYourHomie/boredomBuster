@@ -3,16 +3,22 @@
 import { put, takeLatest } from "redux-saga/effects";
 // Utils
 import handleFindActivityUtils from "../../utils/handleFindActivityUtils";
+import handleClearCategoryReduxState from "../../utils/handleClearCategoryReducerState";
 // Axios
 import axios, { AxiosResponse } from "axios";
 // Types
 import { DispatchedActivityType } from "../../types/categories/CategoryTypes";
-import type { ChosenCategories } from "../../types/categories/CategoryTypes";
+import type {
+  ChosenCategories,
+  SelectedCategoriesState,
+} from "../../types/categories/CategoryTypes";
 import { Activity } from "../../../../shared/models/activity";
 
 // * - LISTENER SAGA -
 // * Categories Listener Saga
 export default function* categoriesSaga() {
+  // Clear category reducer states
+  yield takeLatest("CLEAR_CATEGORY_REDUCERS", clearCategoryReducerStates);
   // Find activities
   yield takeLatest(
     "SEARCH_CHOSEN_CATEGORIES_ACTIVITY",
@@ -25,6 +31,11 @@ export default function* categoriesSaga() {
 } // * end categoriesSaga
 
 // * - ACTION SAGAS -
+function* clearCategoryReducerStates(action: DispatchedActivityType) {
+  const selectedCategories = action.payload as SelectedCategoriesState;
+  yield* handleClearCategoryReduxState(selectedCategories);
+}
+
 // * Find Activities
 // Gen function to search for activities based on category
 function* searchChosenCategoryActivity(action: DispatchedActivityType) {

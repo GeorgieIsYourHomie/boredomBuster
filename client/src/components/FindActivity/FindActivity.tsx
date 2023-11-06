@@ -4,17 +4,16 @@ import React from "react";
 // Components
 import FindActivityButton from "./FindActivityButton/FindActivityButton";
 import Categories from "./Categories/Categories";
-// Hooks
-import { useCategoryState } from "../../hooks/categoryStateHook/categoryStateHook";
 import FindActivityError from "./FindActivityButton/Error/FindActivityError";
+// Types
+import type { CategoriesStateHookProps } from "../../types/categories/CategoryTypes";
 
 // * - FindActivityButton COMPONENT -
-const FindActivity: () => JSX.Element = () => {
-  // * - DECLARATIONS -
-  // Categories state hook function and state
-  const { selectedCategories, chosenCategories, toggleCategory } =
-    useCategoryState();
-
+const FindActivity: React.FC<CategoriesStateHookProps> = ({
+  selectedCategories,
+  chosenCategories,
+  toggleCategory,
+}) => {
   // * - RENDERING -
   return (
     <React.Fragment>
