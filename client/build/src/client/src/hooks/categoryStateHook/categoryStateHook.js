@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.useCategoryState = void 0;
+// * - IMPORTING -
+// React
 const react_1 = require("react");
 // * - useCategoryState HOOK -
 const useCategoryState = () => {

@@ -7,10 +7,13 @@ const initialState = {
 // * - Recreation ACTIVITY REDUCER -
 const recreationActivityReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "SET_RECREATION_ACTIVITY":
+        case "SET_RECREATIONAL_ACTIVITY":
             // Setting new activity
             const newRecreationActivity = action.payload;
             return Object.assign(Object.assign({}, state), { recreationActivity: newRecreationActivity });
+        case "CLEAR_RECREATION_CATEGORY":
+            const noRecreationalActivity = null;
+            return Object.assign(Object.assign({}, state), { recreationActivity: noRecreationalActivity });
         default:
             return state;
     }

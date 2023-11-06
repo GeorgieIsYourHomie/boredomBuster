@@ -11,6 +11,9 @@ const randomActivityReducer = (state = initialState, action) => {
             // Setting new activity
             const newRandomActivity = action.payload;
             return Object.assign(Object.assign({}, state), { randomActivity: newRandomActivity });
+        case "CLEAR_RANDOM_CATEGORY":
+            const noRandomActivity = null;
+            return Object.assign(Object.assign({}, state), { randomActivity: noRandomActivity });
         default:
             return state;
     }

@@ -10,7 +10,7 @@ const react_1 = __importDefault(require("react"));
 // Redux
 const reduxHook_1 = require("../../../hooks/reduxHook/reduxHook");
 // * - FindActivityButton COMPONENT -
-const FindActivityButton = ({ chosenCategories }) => {
+const FindActivityButton = ({ chosenCategories, }) => {
     // * - DECLARATIONS -
     const dispatch = (0, reduxHook_1.useAppDispatch)();
     // * - FUNCTIONS -
@@ -31,13 +31,20 @@ const FindActivityButton = ({ chosenCategories }) => {
             dispatch({
                 type: "NO_ERRORS",
             });
+            // Dispatching action to toggle on toggleShowActivity
+            dispatch({
+                type: "TOGGLE_SHOW_ACTIVITY_ON",
+            });
         }
         else if (chosenCategories && (chosenCategories === null || chosenCategories === void 0 ? void 0 : chosenCategories.length) === 0) {
             // Error prompt dispatch here if no selected category
             dispatch({
                 type: "SELECT_A_CATEGORY",
             });
-            console.log("Please select a category.");
+            // Dispatching action to toggle off toggleShowActivity
+            dispatch({
+                type: "TOGGLE_SHOW_ACTIVITY_OFF",
+            });
         }
         else {
             return;
