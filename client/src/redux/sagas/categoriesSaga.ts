@@ -28,9 +28,13 @@ export default function* categoriesSaga() {
   yield takeLatest("FIND_RANDOM_ACTIVITY", findRandomActivity);
   // Find recreational activity
   yield takeLatest("FIND_RECREATION_ACTIVITY", findRecreationalActivity);
+  // Find social activity
+  yield takeLatest("FIND_SOCIAL_ACTIVITY", findSocialActivity);
 } // * end categoriesSaga
 
 // * - ACTION SAGAS -
+// * Clear Category Reducer States
+// Gen function to clear all category reducer states if false
 function* clearCategoryReducerStates(action: DispatchedActivityType) {
   const selectedCategories = action.payload as SelectedCategoriesState;
   yield* handleClearCategoryReduxState(selectedCategories);
@@ -81,7 +85,7 @@ function* findRandomActivity() {
   } catch (error) {
     console.error("\nError finding random activity:", error);
   }
-}
+} // * end findRandomActivity
 
 // * Find Recreational Activity
 // Gen function to search for recreational activity
@@ -103,4 +107,26 @@ function* findRecreationalActivity() {
   } catch (error) {
     console.error("\nError finding recreational activity:", error);
   }
-}
+}// * end findRecreationalActivity
+
+// * Find Social Activity
+// Gen function to search for social activity
+function* findSocialActivity() {
+  try {
+    // Fetching social activity
+    const response: AxiosResponse<Activity> = yield axios.get(
+      `/bored/activity/social`
+    );
+
+    // Accessing response data (social activity)
+    const socialActivity: Activity = response.data;
+
+    // Dispatch action to set new social activity
+    yield put({
+      type: "SET_SOCIAL_ACTIVITY",
+      payload: socialActivity,
+    });
+  } catch (error) {
+    console.error("\nError finding social activity:", error);
+  }
+} // * end findSocialActivity;

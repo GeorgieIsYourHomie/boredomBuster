@@ -8,11 +8,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const effects_1 = require("redux-saga/effects");
 // Utils
 const handleFindActivityUtils_1 = __importDefault(require("../../utils/handleFindActivityUtils"));
+const handleClearCategoryReducerState_1 = __importDefault(require("../../utils/handleClearCategoryReducerState"));
 // Axios
 const axios_1 = __importDefault(require("axios"));
 // * - LISTENER SAGA -
 // * Categories Listener Saga
 function* categoriesSaga() {
+    // Clear category reducer states
+    yield (0, effects_1.takeLatest)("CLEAR_CATEGORY_REDUCERS", clearCategoryReducerStates);
     // Find activities
     yield (0, effects_1.takeLatest)("SEARCH_CHOSEN_CATEGORIES_ACTIVITY", searchChosenCategoryActivity);
     // Find random activity
@@ -22,6 +25,10 @@ function* categoriesSaga() {
 } // * end categoriesSaga
 exports.default = categoriesSaga;
 // * - ACTION SAGAS -
+function* clearCategoryReducerStates(action) {
+    const selectedCategories = action.payload;
+    yield* (0, handleClearCategoryReducerState_1.default)(selectedCategories);
+}
 // * Find Activities
 // Gen function to search for activities based on category
 function* searchChosenCategoryActivity(action) {
@@ -65,7 +72,7 @@ function* findRandomActivity() {
 function* findRecreationalActivity() {
     try {
         // Fetching recreational activity
-        const response = yield axios_1.default.get(`/bored/activity/random`);
+        const response = yield axios_1.default.get(`/bored/activity/recreation`);
         // Accessing response data (recreational activity)
         const recreationalActivity = response.data;
         // Dispatch action to set new recreational activity
