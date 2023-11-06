@@ -18,6 +18,9 @@ const recreationActivityReducer = (
       // Setting new activity
       const newRecreationActivity = action.payload as Activity;
       return { ...state, recreationActivity: newRecreationActivity };
+    case "CLEAR_RECREATION_CATEGORY":
+      const noRecreationalActivity = null;
+      return { ...state, recreationActivity: noRecreationalActivity };
     default:
       return state;
   }

@@ -23,13 +23,14 @@ const ShowActivity: () => JSX.Element = () => {
   return (
     <React.Fragment>
       <div className="mt-8  flex max-w-xl flex-col justify-center rounded-lg border border-black bg-white p-4 shadow-[4px_8px_30px_-5px_rgba(0,0,0,0.3)]">
-        <h2 className="text-3xl">Activity</h2>
+        <h2 className="text-3xl">Activities</h2>
         {/* Displaying Activities */}
+        {!randomActivity && !recreationActivity && <p className="text-lg">Find a fun activity to do!</p>}
         {/* Random */}
         {randomActivity && (
           <div>
             <h3 className="mt-3 text-2xl font-semibold text-rose-600">
-              Random Activity:
+              Random:
             </h3>
             <p className="text-xl">{randomActivity.activity}.</p>
           </div>
@@ -38,7 +39,7 @@ const ShowActivity: () => JSX.Element = () => {
         {recreationActivity && (
           <div>
             <h3 className="mt-3 text-2xl font-semibold text-orange-600">
-              Recreational Activity:
+              Recreational:
             </h3>
             <p className="text-xl">{recreationActivity.activity}.</p>
           </div>

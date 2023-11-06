@@ -2,6 +2,10 @@
 // Types
 import { Activity } from "../../../../shared/models/activity";
 
+// * - INTERFACES -
+// Type for displaying category activities
+export type ActivityForCategory = (Activity | null)[];
+
 // * Selected categories state
 export type SelectedCategoriesState = {
   [key: string]: boolean;
@@ -32,5 +36,5 @@ export type CategoryItemProps = {
 // Type for chosenCategory action and payload
 export interface DispatchedActivityType {
   type: string;
-  payload?: ChosenCategories | string | Activity;
+  payload?: ChosenCategories | Activity | SelectedCategoriesState | string;
 }

@@ -18,6 +18,9 @@ const randomActivityReducer = (
       // Setting new activity
       const newRandomActivity = action.payload as Activity;
       return { ...state, randomActivity: newRandomActivity };
+    case "CLEAR_RANDOM_CATEGORY":
+      const noRandomActivity = null;
+      return { ...state, randomActivity: noRandomActivity };
     default:
       return state;
   }
