@@ -30,6 +30,20 @@ export default function* categoriesSaga() {
   yield takeLatest("FIND_RECREATION_ACTIVITY", findRecreationalActivity);
   // Find social activity
   yield takeLatest("FIND_SOCIAL_ACTIVITY", findSocialActivity);
+  // Find educational activity
+  yield takeLatest("FIND_EDUCATION_ACTIVITY", findEducationalActivity);
+  // Find DIY activity
+  yield takeLatest("FIND_DIY_ACTIVITY", findDIYActivity);
+  // Find cooking activity
+  yield takeLatest("FIND_COOKING_ACTIVITY", findCookingActivity);
+  // Find charity activity
+  yield takeLatest("FIND_CHARITY_ACTIVITY", findCharityActivity);
+  // Find relaxation activity
+  yield takeLatest("FIND_RELAXATION_ACTIVITY", findRelaxationActivity);
+  // Find busywork activity
+  yield takeLatest("FIND_BUSYWORK_ACTIVITY", findBusyworkActivity);
+  // Find music activity
+  yield takeLatest("FIND_MUSIC_ACTIVITY", findMusicActivity);
 } // * end categoriesSaga
 
 // * - ACTION SAGAS -
@@ -107,7 +121,7 @@ function* findRecreationalActivity() {
   } catch (error) {
     console.error("\nError finding recreational activity:", error);
   }
-}// * end findRecreationalActivity
+} // * end findRecreationalActivity
 
 // * Find Social Activity
 // Gen function to search for social activity
@@ -130,3 +144,156 @@ function* findSocialActivity() {
     console.error("\nError finding social activity:", error);
   }
 } // * end findSocialActivity;
+
+// * Find Educational Activity
+// Gen function to search for educational activity
+function* findEducationalActivity() {
+  try {
+    // Fetching educational activity
+    const response: AxiosResponse<Activity> = yield axios.get(
+      `/bored/activity/education`
+    );
+
+    // Accessing response data (educational activity)
+    const educationalActivity: Activity = response.data;
+
+    // Dispatch action to set new educational activity
+    yield put({
+      type: "SET_EDUCATIONAL_ACTIVITY",
+      payload: educationalActivity,
+    });
+  } catch (error) {
+    console.error("\nError finding educational activity:", error);
+  }
+} // * end findEducationalActivity;
+
+// * Find DIY Activity
+// Gen function to search for DIY activity
+function* findDIYActivity() {
+  try {
+    // Fetching DIY activity
+    const response: AxiosResponse<Activity> =
+      yield axios.get(`/bored/activity/diy`);
+
+    // Accessing response data (DIY activity)
+    const DIYActivity: Activity = response.data;
+
+    // Dispatch action to set new DIY activity
+    yield put({
+      type: "SET_DIY_ACTIVITY",
+      payload: DIYActivity,
+    });
+  } catch (error) {
+    console.error("\nError finding DIY activity:", error);
+  }
+} // * end findDIYActivity;
+
+// * Find Cooking Activity
+// Gen function to search for cooking activity
+function* findCookingActivity() {
+  try {
+    // Fetching cooking activity
+    const response: AxiosResponse<Activity> = yield axios.get(
+      `/bored/activity/cooking`
+    );
+
+    // Accessing response data (cooking activity)
+    const cookingActivity: Activity = response.data;
+
+    // Dispatch action to set new cooking activity
+    yield put({
+      type: "SET_COOKING_ACTIVITY",
+      payload: cookingActivity,
+    });
+  } catch (error) {
+    console.error("\nError finding cooking activity:", error);
+  }
+} // * end findCookingActivity;
+
+// * Find Charity Activity
+// Gen function to search for charity activity
+function* findCharityActivity() {
+  try {
+    // Fetching charity activity
+    const response: AxiosResponse<Activity> = yield axios.get(
+      `/bored/activity/charity`
+    );
+
+    // Accessing response data (charity activity)
+    const charityActivity: Activity = response.data;
+
+    // Dispatch action to set new cooking activity
+    yield put({
+      type: "SET_CHARITY_ACTIVITY",
+      payload: charityActivity,
+    });
+  } catch (error) {
+    console.error("\nError finding charity activity:", error);
+  }
+} // * end findCharityActivity;
+
+// * Find Relaxation Activity
+// Gen function to search for relaxation activity
+function* findRelaxationActivity() {
+  try {
+    // Fetching relaxation activity
+    const response: AxiosResponse<Activity> = yield axios.get(
+      `/bored/activity/relaxation`
+    );
+
+    // Accessing response data (relaxation activity)
+    const relaxationActivity: Activity = response.data;
+
+    // Dispatch action to set new relaxation activity
+    yield put({
+      type: "SET_RELAXATION_ACTIVITY",
+      payload: relaxationActivity,
+    });
+  } catch (error) {
+    console.error("\nError finding relaxation activity:", error);
+  }
+} // * end findRelaxationActivity;
+
+// * Find Busywork Activity
+// Gen function to search for busywork activity
+function* findBusyworkActivity() {
+  try {
+    // Fetching busywork activity
+    const response: AxiosResponse<Activity> = yield axios.get(
+      `/bored/activity/busywork`
+    );
+
+    // Accessing response data (busywork activity)
+    const busyworkActivity: Activity = response.data;
+
+    // Dispatch action to set new relaxation activity
+    yield put({
+      type: "SET_BUSYWORK_ACTIVITY",
+      payload: busyworkActivity,
+    });
+  } catch (error) {
+    console.error("\nError finding busywork activity:", error);
+  }
+} // * end findBusyworkActivity;
+
+// * Find Music Activity
+// Gen function to search for music activity
+function* findMusicActivity() {
+  try {
+    // Fetching music activity
+    const response: AxiosResponse<Activity> = yield axios.get(
+      `/bored/activity/music`
+    );
+
+    // Accessing response data (music activity)
+    const musicActivity: Activity = response.data;
+
+    // Dispatch action to set new music activity
+    yield put({
+      type: "SET_MUSIC_ACTIVITY",
+      payload: musicActivity,
+    });
+  } catch (error) {
+    console.error("\nError finding music activity:", error);
+  }
+} // * end findMusicActivity;
