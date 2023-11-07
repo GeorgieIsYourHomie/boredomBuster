@@ -14,7 +14,7 @@ const FindActivityError = () => {
     // * - DECLARATIONS -
     const errorPrompt = (0, reduxHook_1.useAppSelector)((store) => store.errorReducer.errorPrompt);
     // * - RENDERING -
-    return (0, jsx_runtime_1.jsx)(react_1.default.Fragment, { children: errorPrompt && (0, jsx_runtime_1.jsx)("p", Object.assign({ className: "mt-8 text-lg text-rose-600" }, { children: errorPrompt })) });
+    return ((0, jsx_runtime_1.jsx)(react_1.default.Fragment, { children: errorPrompt && ((0, jsx_runtime_1.jsx)("p", Object.assign({ className: "mt-8 font-sans text-lg text-rose-600" }, { children: errorPrompt }))) }));
 };
 // * Exporting FindActivityError
 exports.default = FindActivityError;

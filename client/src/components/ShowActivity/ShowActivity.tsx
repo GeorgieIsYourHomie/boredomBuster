@@ -51,7 +51,7 @@ const ShowActivity: () => JSX.Element = () => {
   // * - RENDERING -
   return (
     <React.Fragment>
-      <div className="mt-8  flex max-w-xl flex-col justify-center rounded-lg border border-black bg-white p-4 shadow-[4px_8px_30px_-5px_rgba(0,0,0,0.3)]">
+      <div>
         <h2 className="text-3xl">Activities</h2>
         {/* Displaying Activities */}
         {!randomActivity &&
@@ -64,7 +64,7 @@ const ShowActivity: () => JSX.Element = () => {
           !relaxationActivity &&
           !busyworkActivity &&
           !musicActivity && (
-            <p className="text-lg">Find a fun activity to do!</p>
+            <p className="font-sans text-lg">Find a fun activity to do!</p>
           )}
         {/* Random */}
         {randomActivity && (
@@ -72,7 +72,7 @@ const ShowActivity: () => JSX.Element = () => {
             <h3 className="mt-3 text-2xl font-semibold text-rose-600">
               Random:
             </h3>
-            <p className="text-xl">{randomActivity.activity}.</p>
+            <p>{randomActivity.activity}.</p>
           </div>
         )}
         {/* Recreation */}
@@ -81,7 +81,7 @@ const ShowActivity: () => JSX.Element = () => {
             <h3 className="mt-3 text-2xl font-semibold text-orange-600">
               Recreational:
             </h3>
-            <p className="text-xl">{recreationActivity.activity}.</p>
+            <p>{recreationActivity.activity}.</p>
           </div>
         )}
         {/* Social */}
@@ -90,7 +90,7 @@ const ShowActivity: () => JSX.Element = () => {
             <h3 className="mt-3 text-2xl font-semibold text-green-600">
               Social:
             </h3>
-            <p className="text-xl">{socialActivity.activity}.</p>
+            <p>{socialActivity.activity}.</p>
           </div>
         )}
         {/* Education */}
@@ -99,14 +99,14 @@ const ShowActivity: () => JSX.Element = () => {
             <h3 className="mt-3 text-2xl font-semibold text-indigo-600">
               Educational:
             </h3>
-            <p className="text-xl">{educationalActivity.activity}.</p>
+            <p>{educationalActivity.activity}.</p>
           </div>
         )}
         {/* DIY */}
         {DIYActivity && (
           <div>
             <h3 className="mt-3 text-2xl font-semibold text-rose-600">DIY:</h3>
-            <p className="text-xl">{DIYActivity.activity}.</p>
+            <p>{DIYActivity.activity}.</p>
           </div>
         )}
         {/* Cooking */}
@@ -115,7 +115,7 @@ const ShowActivity: () => JSX.Element = () => {
             <h3 className="mt-3 text-2xl font-semibold text-orange-600">
               Cooking:
             </h3>
-            <p className="text-xl">{cookingActivity.activity}.</p>
+            <p>{cookingActivity.activity}.</p>
           </div>
         )}
         {/* Charity */}
@@ -124,7 +124,7 @@ const ShowActivity: () => JSX.Element = () => {
             <h3 className="mt-3 text-2xl font-semibold text-green-600">
               Charity:
             </h3>
-            <p className="text-xl">{charityActivity.activity}.</p>
+            <p>{charityActivity.activity}.</p>
           </div>
         )}
         {/* Relaxation */}
@@ -133,7 +133,7 @@ const ShowActivity: () => JSX.Element = () => {
             <h3 className="mt-3 text-2xl font-semibold text-indigo-600">
               Relaxation:
             </h3>
-            <p className="text-xl">{relaxationActivity.activity}.</p>
+            <p>{relaxationActivity.activity}.</p>
           </div>
         )}
         {/* Busywork */}
@@ -142,7 +142,7 @@ const ShowActivity: () => JSX.Element = () => {
             <h3 className="mt-3 text-2xl font-semibold text-rose-600">
               Busywork:
             </h3>
-            <p className="text-xl">{busyworkActivity.activity}.</p>
+            <p>{busyworkActivity.activity}.</p>
           </div>
         )}
         {/* Music */}
@@ -151,7 +151,7 @@ const ShowActivity: () => JSX.Element = () => {
             <h3 className="mt-3 text-2xl font-semibold text-orange-600">
               Music:
             </h3>
-            <p className="text-xl">{musicActivity.activity}.</p>
+            <p>{musicActivity.activity}.</p>
           </div>
         )}
       </div>
