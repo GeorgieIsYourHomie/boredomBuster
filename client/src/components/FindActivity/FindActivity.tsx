@@ -26,7 +26,7 @@ const FindActivity: React.FC<CategoriesStateHookProps> = ({
   // * - RENDERING -
   return (
     <React.Fragment>
-      <div className="max-w-full rounded-2xl border-2 border-black bg-white p-7 shadow-[24px_32px_0px_2px_rgba(0,0,0,90)]">
+      <div className="max-w-full rounded-2xl border-4 border-black bg-white p-7 shadow-[24px_32px_0px_2px_rgba(0,0,0,90)]">
         {/* Components */}
         <Categories
           selectedCategories={selectedCategories}
