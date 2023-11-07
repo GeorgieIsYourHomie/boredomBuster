@@ -10,7 +10,13 @@ const FindActivityError: React.FC = () => {
   const errorPrompt = useAppSelector((store) => store.errorReducer.errorPrompt);
 
   // * - RENDERING -
-  return <React.Fragment>{errorPrompt && <p className="mt-8 text-lg text-rose-600">{errorPrompt}</p>}</React.Fragment>;
+  return (
+    <React.Fragment>
+      {errorPrompt && (
+        <p className="mt-8 font-sans text-lg text-rose-600">{errorPrompt}</p>
+      )}
+    </React.Fragment>
+  );
 };
 
 // * Exporting FindActivityError

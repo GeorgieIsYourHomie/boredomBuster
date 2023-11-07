@@ -11,13 +11,38 @@ const react_1 = __importDefault(require("react"));
 const reduxHook_1 = require("../../hooks/reduxHook/reduxHook");
 // * - ShowActivity COMPONENT -
 const ShowActivity = () => {
+    // * - DECLARATIONS -
     // Random activity reducer
     const randomActivity = (0, reduxHook_1.useAppSelector)((store) => store.randomActivityReducer.randomActivity);
     // Recreation activity reducer
     const recreationActivity = (0, reduxHook_1.useAppSelector)((store) => store.recreationActivityReducer.recreationActivity);
-    console.log("recreationActivity is:", recreationActivity);
+    // Recreation activity reducer
+    const socialActivity = (0, reduxHook_1.useAppSelector)((store) => store.socialActivityReducer.socialActivity);
+    // Educational activity reducer
+    const educationalActivity = (0, reduxHook_1.useAppSelector)((store) => store.educationalActivityReducer.educationalActivity);
+    // DIY activity reducer
+    const DIYActivity = (0, reduxHook_1.useAppSelector)((store) => store.DIYActivityReducer.DIYActivity);
+    // Cooking activity reducer
+    const cookingActivity = (0, reduxHook_1.useAppSelector)((store) => store.cookingActivityReducer.cookingActivity);
+    // Charity activity reducer
+    const charityActivity = (0, reduxHook_1.useAppSelector)((store) => store.charityActivityReducer.charityActivity);
+    // Relaxation activity reducer
+    const relaxationActivity = (0, reduxHook_1.useAppSelector)((store) => store.relaxationActivityReducer.relaxationActivity);
+    // Busywork activity reducer
+    const busyworkActivity = (0, reduxHook_1.useAppSelector)((store) => store.busyworkActivityReducer.busyworkActivity);
+    // Music activity reducer
+    const musicActivity = (0, reduxHook_1.useAppSelector)((store) => store.musicActivityReducer.musicActivity);
     // * - RENDERING -
-    return ((0, jsx_runtime_1.jsx)(react_1.default.Fragment, { children: (0, jsx_runtime_1.jsxs)("div", Object.assign({ className: "mt-8  flex max-w-xl flex-col justify-center rounded-lg border border-black bg-white p-4 shadow-[4px_8px_30px_-5px_rgba(0,0,0,0.3)]" }, { children: [(0, jsx_runtime_1.jsx)("h2", Object.assign({ className: "text-3xl" }, { children: "Activities" })), !randomActivity && !recreationActivity && (0, jsx_runtime_1.jsx)("p", Object.assign({ className: "text-lg" }, { children: "Find a fun activity to do!" })), randomActivity && ((0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("h3", Object.assign({ className: "mt-3 text-2xl font-semibold text-rose-600" }, { children: "Random:" })), (0, jsx_runtime_1.jsxs)("p", Object.assign({ className: "text-xl" }, { children: [randomActivity.activity, "."] }))] })), recreationActivity && ((0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("h3", Object.assign({ className: "mt-3 text-2xl font-semibold text-orange-600" }, { children: "Recreational:" })), (0, jsx_runtime_1.jsxs)("p", Object.assign({ className: "text-xl" }, { children: [recreationActivity.activity, "."] }))] }))] })) }));
+    return ((0, jsx_runtime_1.jsx)(react_1.default.Fragment, { children: (0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("h2", Object.assign({ className: "text-3xl" }, { children: "Activities" })), !randomActivity &&
+                    !recreationActivity &&
+                    !socialActivity &&
+                    !educationalActivity &&
+                    !DIYActivity &&
+                    !cookingActivity &&
+                    !charityActivity &&
+                    !relaxationActivity &&
+                    !busyworkActivity &&
+                    !musicActivity && ((0, jsx_runtime_1.jsx)("p", Object.assign({ className: "font-sans text-lg" }, { children: "Find a fun activity to do!" }))), randomActivity && ((0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("h3", Object.assign({ className: "mt-3 text-2xl font-semibold text-rose-600" }, { children: "Random:" })), (0, jsx_runtime_1.jsxs)("p", { children: [randomActivity.activity, "."] })] })), recreationActivity && ((0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("h3", Object.assign({ className: "mt-3 text-2xl font-semibold text-orange-600" }, { children: "Recreational:" })), (0, jsx_runtime_1.jsxs)("p", { children: [recreationActivity.activity, "."] })] })), socialActivity && ((0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("h3", Object.assign({ className: "mt-3 text-2xl font-semibold text-green-600" }, { children: "Social:" })), (0, jsx_runtime_1.jsxs)("p", { children: [socialActivity.activity, "."] })] })), educationalActivity && ((0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("h3", Object.assign({ className: "mt-3 text-2xl font-semibold text-indigo-600" }, { children: "Educational:" })), (0, jsx_runtime_1.jsxs)("p", { children: [educationalActivity.activity, "."] })] })), DIYActivity && ((0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("h3", Object.assign({ className: "mt-3 text-2xl font-semibold text-rose-600" }, { children: "DIY:" })), (0, jsx_runtime_1.jsxs)("p", { children: [DIYActivity.activity, "."] })] })), cookingActivity && ((0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("h3", Object.assign({ className: "mt-3 text-2xl font-semibold text-orange-600" }, { children: "Cooking:" })), (0, jsx_runtime_1.jsxs)("p", { children: [cookingActivity.activity, "."] })] })), charityActivity && ((0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("h3", Object.assign({ className: "mt-3 text-2xl font-semibold text-green-600" }, { children: "Charity:" })), (0, jsx_runtime_1.jsxs)("p", { children: [charityActivity.activity, "."] })] })), relaxationActivity && ((0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("h3", Object.assign({ className: "mt-3 text-2xl font-semibold text-indigo-600" }, { children: "Relaxation:" })), (0, jsx_runtime_1.jsxs)("p", { children: [relaxationActivity.activity, "."] })] })), busyworkActivity && ((0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("h3", Object.assign({ className: "mt-3 text-2xl font-semibold text-rose-600" }, { children: "Busywork:" })), (0, jsx_runtime_1.jsxs)("p", { children: [busyworkActivity.activity, "."] })] })), musicActivity && ((0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("h3", Object.assign({ className: "mt-3 text-2xl font-semibold text-orange-600" }, { children: "Music:" })), (0, jsx_runtime_1.jsxs)("p", { children: [musicActivity.activity, "."] })] }))] }) }));
 }; // * - END ShowActivity COMPONENT -
 // * Exporting ShowActivity Component
 exports.default = ShowActivity;

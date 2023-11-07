@@ -7,12 +7,10 @@ import React from "react";
 import "./App.css";
 // Hooks
 import { useCategoryState } from "../../hooks/categoryStateHook/categoryStateHook";
-import { useAppSelector } from "../../hooks/reduxHook/reduxHook";
 // Utils
 // import handleClearCategoryReducerState from "../../utils/handleClearCategoryReducerState";
 // Components
 import FindActivity from "../FindActivity/FindActivity";
-import ShowActivity from "../ShowActivity/ShowActivity";
 import NavBar from "../NavBar/NavBar";
 
 // * - App COMPONENT -
@@ -22,14 +20,9 @@ const App: React.FC = () => {
   const { selectedCategories, chosenCategories, toggleCategory } =
     useCategoryState();
 
-  // toggleShowActivity reducer
-  const toggleShowActivity = useAppSelector(
-    (store) => store.toggleShowActivityReducer.toggleShowActivity
-  );
-
   // * - RENDERING -
   return (
-    <div className="max-w-80 mx-auto my-3 flex w-full flex-col justify-center px-6 md:max-w-xl">
+    <div className="max-w-100 mx-auto my-6 p-8 flex w-full flex-col justify-center px-6 md:max-w-4xl">
       <header>
         <div>
           {/* NavBar Component */}
@@ -45,16 +38,13 @@ const App: React.FC = () => {
         </div>
       </header>
 
-      <main className="mt-9 text-center">
+      <main className="mt-9 flex w-full flex-col justify-center text-center">
         {/* Components */}
         <FindActivity
           selectedCategories={selectedCategories}
           chosenCategories={chosenCategories}
           toggleCategory={toggleCategory}
         />
-        {/* Conditional to show below component */}
-        {/* If chosenCategories true and has length after button was clicked */}
-        {toggleShowActivity && chosenCategories.length > 0 && <ShowActivity />}
       </main>
     </div>
   );

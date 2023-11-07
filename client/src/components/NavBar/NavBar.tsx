@@ -11,7 +11,7 @@ const NavBar: () => JSX.Element = () => {
   // * - DECLARATIONS -
   // Declaring nav bar button styling
   const navBarButtonStyle: string =
-    "transform rounded-full border border-black bg-black px-3 text-xs text-black text-white shadow-[0px_9px_30px_-10px_rgba(74,63,205)] transition-colors transition-transform duration-150 hover:scale-110 hover:bg-white hover:text-black hover:shadow-[0px_9px_30px_-4px_rgba(20,20,20)] active:scale-75  md:text-lg md:shadow-none";
+    "transform rounded-full border border-black bg-black px-3 text-s text-black text-white shadow-[0px_9px_30px_-10px_rgba(74,63,205)] transition-colors transition-transform duration-150 hover:scale-110 hover:bg-white hover:text-black hover:shadow-[0px_9px_30px_-4px_rgba(20,20,20)] active:scale-75  md:text-lg ";
 
   // * - RENDERING -
   return (
