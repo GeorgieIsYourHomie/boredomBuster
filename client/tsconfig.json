@@ -3,5 +3,10 @@
   "compilerOptions": {
     "outDir": "./build/src"
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/redux/sagas/categoriesSaga.ts",
+    "src/redux/store.ts"
+  ]
 }

@@ -12,28 +12,48 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // * - IMPORTING AND DECLARATIONS -
 // Express
 const express_1 = require("express");
-// BoredAPI requests
-const activity_controller_1 = require("../controllers/activity.controller"); // random activity and category
+// BoredAPI Requests from Controllers
+const randomActivityController_1 = require("../controllers/activityController/randomActivityController"); // random activity
+const recreationActivityController_1 = require("../controllers/activityController/recreationActivityController"); // recreational activity
 // Express Router
 const activityRouter = (0, express_1.Router)();
-// * GET request for random activity and category
-activityRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+// * GET request for random activity
+activityRouter.get("/random", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Declaring activity
-        const randomActivityAndCategory = yield (0, activity_controller_1.getRandomActivityAndCategory)(req, res);
+        const randomActivity = yield (0, randomActivityController_1.getRandomActivity)(req, res);
         // If true, send data
-        if (randomActivityAndCategory) {
-            res.json(randomActivityAndCategory);
-            console.log("Request sent! Random activity and category is:", randomActivityAndCategory);
-        } // If void, send error 
+        if (randomActivity) {
+            res.json(randomActivity);
+            console.log("Request sent! Random activity is:", randomActivity);
+        } // If void, send error
         else {
-            res.status(500).send("Failed to get random activity and category.");
+            res.status(500).send("Failed to get random activity.");
         }
     }
     catch (error) {
         console.error("Error handling random activity request:", error);
         res.status(500).send("Internal server error.");
     }
-}));
+})); // * end get random activity
+// * GET request for recreational activity
+activityRouter.get("/recreational", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        // Declaring activity
+        const recreationalActivity = yield (0, recreationActivityController_1.getRecreationActivity)(req, res);
+        // If true, send data
+        if (recreationalActivity) {
+            res.json(recreationalActivity);
+            console.log("Request sent! Recreational activity is:", recreationalActivity);
+        } // If void, send error
+        else {
+            res.status(500).send("Failed to get recreational activity.");
+        }
+    }
+    catch (error) {
+        console.error("Error handling recreational activity request:", error);
+        res.status(500).send("Internal server error.");
+    }
+})); // * end get random activity
 // * Exporting Router
 exports.default = activityRouter;

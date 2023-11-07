@@ -1,41 +1,51 @@
 // * - IMPORTING -
-// React
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
+// Redux Hook
+import { useAppDispatch } from "../../../../hooks/reduxHook/reduxHook";
 // Category Style
 import { setCategoryButtonStyle } from "../../../../Styles/category/categoryButtonStyle";
 // Types
-import { CategoryProp } from "../../../../types/categories/CategoryProp";
-// Utils
-import { useSetCategorySelectedState } from "../../../../utils/categories/setCategory";
+import { CategoryItemProps } from "../../../../types/categories/CategoryTypes";
+import { CategoriesStateHookProps } from "../../../../types/categories/CategoryTypes";
+
+// * - TYPES -
+// * Toggle Type Prop
+type CombinedCategoryItemProps = CategoriesStateHookProps & CategoryItemProps;
 
 // * - CategoryItem COMPONENT -
-const CategoryItem: React.FC<CategoryProp> = (category: CategoryProp) => {
+const CategoryItem: React.FC<CombinedCategoryItemProps> = ({
+  category,
+  toggleCategory,
+  selectedCategories
+}) => {
   // * - STATE -
   // For setting the category style on click
   const [categoryButtonStyling, setCategoryButtonStyling] = useState(false);
 
   // * - DECLARATIONS -
-  // Category class assignment
+  // Category class assignment for styling
   const categoryClass: string = setCategoryButtonStyle(
     category,
     categoryButtonStyling
   );
 
-  // Categories that were selected
-  const setCategorySelectedState = useSetCategorySelectedState;
+  const dispatch = useAppDispatch();
 
   // * FUNCTIONS
   // Selecting category
   const selectCategory = (event: React.MouseEvent<HTMLElement>) => {
-    // Set the selected category as pervious state(true/false)
+    // Prevent default event
+    event.preventDefault();
+
+    // Set the selected category as previous state (true/false)
     setCategoryButtonStyling(!categoryButtonStyling);
 
     // Function called here to toggle selected category state
-    // 1. Switch statement
-    //  1 - check for category name
-    //  2 - case category name, run relevant function to set (toggle on/off) state of category
-    setCategorySelectedState(event, category);
-  };
+    toggleCategory(category);
+
+    dispatch({ type: "CLEAR_CATEGORY_REDUCERS", payload: selectedCategories });
+  }; // * end selectCategory
 
   // * - RENDERING -
   return (
@@ -46,7 +56,7 @@ const CategoryItem: React.FC<CategoryProp> = (category: CategoryProp) => {
       </button>
     </React.Fragment>
   );
-}; // * - END CategoryItem COMPONENT -
+};
 
 // * Exporting CategoryItem Component
 export default CategoryItem;

@@ -1,6 +1,8 @@
+import { CategoryProp } from "../../types/categories/CategoryTypes";
+
 // * - Category Button Styling -
 export const setCategoryButtonStyle = (
-  category: string,
+  category: CategoryProp,
   categoryIsSelected: boolean
 ) => {
   // Declaring base style

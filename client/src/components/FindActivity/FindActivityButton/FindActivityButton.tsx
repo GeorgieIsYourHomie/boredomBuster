@@ -1,23 +1,59 @@
 // * - IMPORTING -
 // React
 import React from "react";
+// Redux
+import { useAppDispatch } from "../../../hooks/reduxHook/reduxHook";
+// Types
+import type { ChosenCategories } from "../../../types/categories/CategoryTypes";
+
+type FindActivityButtonProp = { chosenCategories: ChosenCategories };
 
 // * - FindActivityButton COMPONENT -
-const FindActivityButton: () => JSX.Element = () => {
+const FindActivityButton: React.FC<FindActivityButtonProp> = ({
+  chosenCategories,
+}) => {
+  // * - DECLARATIONS -
+  const dispatch = useAppDispatch();
+
   // * - FUNCTIONS -
-  const handleFindActivityButton: () => void = () => {
-    // Logging
-    console.log("Find activity button clicked!");
+  // * Function to loop through chosenCategories
+  //  If value matches any category, send dispatch
+  const handleFindActivityButton = (event: React.MouseEvent<HTMLElement>) => {
+    event.preventDefault();
 
-    // * Depending on selected categories, dispatch search to bored api
-    // 1. For loop iterates by two to target category values
-    //    1 - check through all properties
-    // 2. Switch statement
-    //    1 - check if category true
-    //    2 - depending on what is true, will send dispatch
-    //      -- Ex: if (randomSelected) {dispatch: FIND_RANDOM_ACTIVITY}
+    console.log("chosenCategories are:", chosenCategories);
 
-  };
+    // chosenCategories true, dispatch action,
+    // otherwise toggle on prompt
+    if (chosenCategories && chosenCategories.length > 0) {
+      // Dispatching action and payload of chosenCategories for activities
+      dispatch({
+        type: "SEARCH_CHOSEN_CATEGORIES_ACTIVITY",
+        payload: chosenCategories,
+      });
+      // Dispatching action to clear errors
+      dispatch({
+        type: "NO_ERRORS",
+      });
+
+      // Dispatching action to toggle on toggleShowActivity
+      dispatch({
+        type: "TOGGLE_SHOW_ACTIVITY_ON",
+      });
+    } else if (chosenCategories && chosenCategories?.length === 0) {
+      // Error prompt dispatch here if no selected category
+      dispatch({
+        type: "SELECT_A_CATEGORY",
+      });
+
+      // Dispatching action to toggle off toggleShowActivity
+      dispatch({
+        type: "TOGGLE_SHOW_ACTIVITY_OFF",
+      });
+    } else {
+      return;
+    }
+  }; // * end handleFindActivityButton
 
   // * - RENDERING -
   return (
@@ -25,7 +61,7 @@ const FindActivityButton: () => JSX.Element = () => {
       <div className="mb-2">
         <button
           onClick={handleFindActivityButton}
-          className=" m-6 mb-8 mt-12 transform rounded-full bg-indigo-700 px-10 py-2 text-2xl text-white shadow-[0px_9px_30px_-10px_rgba(74,63,205)] transition-transform duration-150 hover:scale-110 hover:border hover:border-black hover:bg-white hover:text-black hover:shadow-[0px_9px_30px_-4px_rgba(74,63,205)] active:scale-75"
+          className="mb-8 mt-14 transform rounded-full bg-indigo-700 px-10 py-2 text-2xl text-white shadow-[0px_9px_30px_-10px_rgba(74,63,205)] transition-transform duration-150 hover:scale-110 hover:border hover:border-black hover:bg-white hover:text-black hover:shadow-[0px_9px_30px_-4px_rgba(74,63,205)] active:scale-75"
         >
           Find Activity
         </button>
