@@ -28,7 +28,6 @@
   "scripts": {
     "start": "cd server && npm run server",
     "client": "cd client && npm run client",
-    "server": "cd server && npm run server",
     "install": "npm run install-client && npm run install-server",
     "install-client": "cd client && npm install",
     "install-server": "cd server && npm install",
