@@ -23,6 +23,8 @@ Boredom Buster is a React TypeScript-based web application that leverages the Bo
 - Simple and user-friendly interface.
 - Error handling for smooth user experience.
 
+
+
 ## Technologies Used
 
 - React
@@ -64,8 +66,8 @@ To run this project locally, follow these steps:
 ## Usage
 
     Select a category from the dropdown menu.
-    Click the "Get Bored!" button to fetch a random activity suggestion.
-    Enjoy your newfound activity idea!
+    Click the "Find Activity" button to fetch a random activity suggestion.
+    Enjoy your newfound activity idea or click once again to receive another!
 
 ## API Usage
 
