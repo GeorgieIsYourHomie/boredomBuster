@@ -14,7 +14,7 @@ Welcome to Boredom Buster, a simple web application that helps you find exciting
 
 ## Description
 
-Boredom Buster is a React TypeScript-based web application that leverages the BoredAPI to provide users with random activity suggestions based on selected categories. Whether you're looking for something fun, creative, or relaxing, Boredom Buster has you covered.
+Boredom Buster is a React TypeScript-based, responsive web application that leverages the BoredAPI to provide users with random activity suggestions based on selected categories. Whether you're looking for something fun, creative, or relaxing, Boredom Buster has you covered.
 
 ## Features
 
@@ -23,7 +23,30 @@ Boredom Buster is a React TypeScript-based web application that leverages the Bo
 - Simple and user-friendly interface.
 - Error handling for smooth user experience.
 
+### Landing Page
 
+![Landing Page](../boredom-buster/client/public/images/boredom-buster-landing-page.png)
+
+- **One page web app**
+- **Navigation at top**
+
+### Other Page Feature: Select Category
+
+![Select Category](../boredom-buster/client/public/images/boredom-buster-landing-page-select-category.png)
+
+- **Select desired categories**
+
+### Other Page Feature: Find Activity
+
+![Find Activity](../boredom-buster/client/public/images/boredom-buster-landing-page-find-activity.png)
+
+- **Click "Find Activity" button to search for selected category activity**
+
+### Responsiveness:
+
+![Responsive Design](../boredom-buster/client/public/images/boredom-buster-responsiveness.gif)
+
+- **Fully responsive website design**
 
 ## Technologies Used
 
@@ -41,27 +64,50 @@ To run this project locally, follow these steps:
    ```bash
    git clone https://github.com/your-username/boredom-buster.git
 
+   ```
+
 2. Navigate to the project directory:
 
    ```bash
     cd boredom-buster
+
+   ```
 
 3. Install project dependencies:
 
    ```bash
     npm install
 
-4. Start the development server:
+   ```
 
-    ```bash
-    npm run client
+4. Compile all TypeScript code:
 
-4. Start the backend server:
+   ```bash
+   npm run tsc
+   ```
 
-    ```bash
-    npm run server
-    
-5. Open your web browser and go to http://localhost:3000 to use the application.
+5. Start the development server:
+
+   ```bash
+   npm run client
+
+   ```
+
+6. Start the backend server:
+
+   ```bash
+   npm run start
+
+   ```
+
+7. Optional: Run react build (If you want to view from server):
+
+   ```bash
+   npm run build
+
+   ```
+
+8. Open your web browser and go to http://localhost:3000 to use the application.
 
 ## Usage
 
