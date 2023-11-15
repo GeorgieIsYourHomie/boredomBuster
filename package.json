@@ -26,6 +26,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "start": "cd server && npm run server",
     "client": "cd client && npm run client",
     "server": "cd server && npm run server",
     "install": "npm run install-client && npm run install-server",
