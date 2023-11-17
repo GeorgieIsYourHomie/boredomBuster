@@ -27,6 +27,7 @@ const TechStack: React.FC<NavBarButtonStyle> = ({ navBarButtonStyle }) => {
             <li className="transition-transform hover:scale-110">TailwindCSS</li>
             <li className="transition-transform hover:scale-110">HTML/CSS</li>
             <li className="transition-transform hover:scale-110">Redux</li>
+            <li className="transition-transform hover:scale-110">BoredAPI</li>
           </ul>
         )}
       </div>
