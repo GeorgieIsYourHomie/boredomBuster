@@ -14,7 +14,7 @@ const TechStack: React.FC<NavBarButtonStyle> = ({ navBarButtonStyle }) => {
     <React.Fragment>
       <div>
         <button className={`${navBarButtonStyle}`} onClick={toggleDropdown}>
-          Tech Stack
+          Tech
         </button>
 
         {/* Dropdown Menu; rendered conditionally based on isDropdownOpen */}
