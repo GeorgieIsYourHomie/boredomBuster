@@ -37,7 +37,7 @@ const App: React.FC = () => {
           />
           <p className="font-sans">
             Discover a world of fun and engaging activities with Boredom Buster!💥
-            Simply select categories your interested in, give the button a
+            Simply select categories you&#8217;re interested in, give the button a
             quick click, and you&#8217;ll instantly get a random activity
             suggestion. It&#8217;s the perfect way to quickly find something
             exciting to do, busting your boredom with ease!
