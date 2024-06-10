@@ -13,21 +13,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // Express
 const express_1 = require("express");
 // BoredAPI requests
-const activity_controller_1 = require("../controllers/activity.controller"); // random activity and category
-const activity_controller_2 = require("../controllers/activity.controller"); // random activity searched by category
+const randomActivityController_1 = require("../controllers/activityController/randomActivityController"); // random activity
 // Express Router
 const activityRouter = (0, express_1.Router)();
-// * GET request for random activity and category
+// * GET request for random activity
 activityRouter.get("/random-activity-and-category", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Declaring activity
-        const randomActivityAndCategory = yield (0, activity_controller_1.getRandomActivityAndCategory)(req, res);
-        // Send random activity and category to client
+        const randomActivityAndCategory = yield (0, randomActivityController_1.getRandomActivity)(req, res);
+        // Send random activity to client
         res.json(randomActivityAndCategory);
-        console.log("Request sent! Random activity and category is:", randomActivityAndCategory);
+        console.log("Request sent! Random activity is:", randomActivityAndCategory);
     }
     catch (error) {
-        console.error("Error handling random activity and category request:", error);
+        console.error("Error handling random activity request:", error);
         res.status(500).send("Server error.");
     }
 }));
@@ -35,8 +34,8 @@ activityRouter.get("/random-activity-and-category", (req, res) => __awaiter(void
 activityRouter.get("/random-activity-by-category", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Declaring activity
-        const randomActivityByCategory = yield (0, activity_controller_2.getRandomActivityByCategory)(req, res);
-        // Send random activity and category to client
+        const randomActivityByCategory = yield (0, randomActivityController_1.getRandomActivity)(req, res);
+        // Send random activity to client
         res.json(randomActivityByCategory);
         console.log("Request sent! Random activity by category is:", randomActivityByCategory);
     }

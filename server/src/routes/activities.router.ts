@@ -2,33 +2,29 @@
 // Express
 import { Router, Request, Response } from "express";
 // BoredAPI requests
-import { getRandomActivityAndCategory } from "../controllers/activity.controller"; // random activity and category
-import { getRandomActivityByCategory } from "../controllers/activity.controller"; // random activity searched by category
+import { getRandomActivity } from "../controllers/activityController/randomActivityController"; // random activity
 // Activity Model
 import { Activity } from "../../../shared/models/activity";
 // Express Router
 const activityRouter = Router();
 
-// * GET request for random activity and category
+// * GET request for random activity
 activityRouter.get(
   "/random-activity-and-category",
   async (req: Request, res: Response): Promise<void> => {
     try {
       // Declaring activity
       const randomActivityAndCategory: Activity | void =
-        await getRandomActivityAndCategory(req, res);
+        await getRandomActivity(req, res);
 
-      // Send random activity and category to client
+      // Send random activity to client
       res.json(randomActivityAndCategory);
       console.log(
-        "Request sent! Random activity and category is:",
+        "Request sent! Random activity is:",
         randomActivityAndCategory
       );
     } catch (error) {
-      console.error(
-        "Error handling random activity and category request:",
-        error
-      );
+      console.error("Error handling random activity request:", error);
       res.status(500).send("Server error.");
     }
   }
@@ -40,10 +36,12 @@ activityRouter.get(
   async (req: Request, res: Response): Promise<void> => {
     try {
       // Declaring activity
-      const randomActivityByCategory: Activity | void =
-        await getRandomActivityByCategory(req, res);
+      const randomActivityByCategory: Activity | void = await getRandomActivity(
+        req,
+        res
+      );
 
-      // Send random activity and category to client
+      // Send random activity to client
       res.json(randomActivityByCategory);
       console.log(
         "Request sent! Random activity by category is:",
