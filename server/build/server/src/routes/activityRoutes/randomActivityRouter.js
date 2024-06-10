@@ -18,15 +18,12 @@ const randomActivityController_1 = require("../../controllers/activityController
 const randomActivityRouter = (0, express_1.Router)();
 // * GET Request Random Activity
 randomActivityRouter.get("/", (_req, _res) => __awaiter(void 0, void 0, void 0, function* () {
-    // Logging requests
-    let requests = 0;
     try {
-        requests++;
         // Declaring activity
         const randomActivity = yield (0, randomActivityController_1.getRandomActivity)(_req, _res);
         // If true, send data
         randomActivity && _res.status(200).json(randomActivity); // Send response
-        console.log(`Request (${requests}) for activity sent! Activity is:`, randomActivity);
+        console.log(`Request for activity sent! Activity is:`, randomActivity);
     }
     catch (error) {
         console.error("Error handling random activity request:", error);

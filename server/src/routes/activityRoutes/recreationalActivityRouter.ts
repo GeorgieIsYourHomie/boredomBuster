@@ -11,28 +11,23 @@ const recreationalActivityRouter = Router();
 // * GET Request Recreational Activity
 recreationalActivityRouter.get(
   "/",
-  async (req: Request, res: Response): Promise<void> => {
+  async (_req: Request, _res: Response): Promise<void> => {
     try {
       // Declaring activity
       const recreationalActivity: Activity | void = await getRecreationActivity(
-        req,
-        res
+        _req,
+        _res
       );
 
       // If true, send data
-      if (recreationalActivity) {
-        res.json(recreationalActivity);
-        console.log(
-          "Request sent! Recreational activity is:",
-          recreationalActivity
-        );
-      } // If void, send error
-      else {
-        res.status(500).send("Failed to get recreational activity.");
-      }
+      recreationalActivity && _res.status(200).json(recreationalActivity); // Send response
+      console.log(
+        `Request for activity sent! Activity is:`,
+        recreationalActivity
+      );
     } catch (error) {
       console.error("Error handling recreational activity request:", error);
-      res.status(500).send("Internal server error.");
+      _res.status(500).send("Internal server error.");
     }
   }
 ); // * end GET Request Recreational Activity
