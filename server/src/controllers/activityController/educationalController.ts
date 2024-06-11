@@ -16,9 +16,15 @@ export const getEducationalActivity = async (
 ): Promise<Activity | void> => {
   try {
     // Get request to the API for a education activity
-    const response: AxiosResponse<Activity> = await axios.get(
-      "http://www.boredapi.com/api/activity?type=education"
-    );
+     const response: AxiosResponse<Activity> = await axios.get(
+       "https://bored-api.appbrewery.com/random",
+       {
+         headers: {
+           "User-Agent": "Mozilla/5.0 (compatible; BoredAPIClient/1.0)",
+         },
+       }
+     );
+
 
     // Declaring data from the response; using type to check data
     const data: Activity = response.data;

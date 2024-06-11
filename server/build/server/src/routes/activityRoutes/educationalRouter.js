@@ -17,22 +17,17 @@ const educationalController_1 = require("../../controllers/activityController/ed
 // Express Router
 const educationalActivityRouter = (0, express_1.Router)();
 // * GET Request Educational Activity
-educationalActivityRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+educationalActivityRouter.get("/", (_req, _res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Declaring activity
-        const educationalActivity = yield (0, educationalController_1.getEducationalActivity)(req, res);
+        const educationalActivity = yield (0, educationalController_1.getEducationalActivity)(_req, _res);
         // If true, send data
-        if (educationalActivity) {
-            res.json(educationalActivity);
-            console.log("Request sent! educational activity is:", educationalActivity);
-        } // If void, send error
-        else {
-            res.status(500).send("Failed to get educational activity.");
-        }
+        educationalActivity && _res.status(200).json(educationalActivity); // Send response
+        console.log(`Request for activity sent! Activity is:`, educationalActivity);
     }
     catch (error) {
         console.error("Error handling educational activity request:", error);
-        res.status(500).send("Internal server error.");
+        _res.status(500).send("Internal server error.");
     }
 })); // * end GET Request Educational Activity
 // * Exporting Router
