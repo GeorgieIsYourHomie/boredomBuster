@@ -17,22 +17,17 @@ const socialActivityController_1 = require("../../controllers/activityController
 // Express Router
 const socialActivityRouter = (0, express_1.Router)();
 // * GET Request Social Activity
-socialActivityRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+socialActivityRouter.get("/", (_req, _res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Declaring activity
-        const socialActivity = yield (0, socialActivityController_1.getSocialActivity)(req, res);
+        const socialActivity = yield (0, socialActivityController_1.getSocialActivity)(_req, _res);
         // If true, send data
-        if (socialActivity) {
-            res.json(socialActivity);
-            console.log("Request sent! social activity is:", socialActivity);
-        } // If void, send error
-        else {
-            res.status(500).send("Failed to get social activity.");
-        }
+        socialActivity && _res.status(200).json(socialActivity); // Send response
+        console.log(`Request for activity sent! Activity is:`, socialActivity);
     }
     catch (error) {
         console.error("Error handling social activity request:", error);
-        res.status(500).send("Internal server error.");
+        _res.status(500).send("Internal server error.");
     }
 })); // * end GET Request Social Activity
 // * Exporting Router

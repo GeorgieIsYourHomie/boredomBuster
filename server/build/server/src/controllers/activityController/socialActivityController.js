@@ -22,7 +22,11 @@ const axios_1 = __importDefault(require("axios"));
 const getSocialActivity = (_req, _res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Get request to the API for a social activity
-        const response = yield axios_1.default.get("http://www.boredapi.com/api/activity?type=social");
+        const response = yield axios_1.default.get("https://bored-api.appbrewery.com/random", {
+            headers: {
+                "User-Agent": "Mozilla/5.0 (compatible; BoredAPIClient/1.0)",
+            },
+        });
         // Declaring data from the response; using type to check data
         const data = response.data;
         // Creating an object

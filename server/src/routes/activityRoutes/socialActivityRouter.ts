@@ -11,22 +11,20 @@ const socialActivityRouter = Router();
 // * GET Request Social Activity
 socialActivityRouter.get(
   "/",
-  async (req: Request, res: Response): Promise<void> => {
+  async (_req: Request, _res: Response): Promise<void> => {
     try {
       // Declaring activity
-      const socialActivity: Activity | void = await getSocialActivity(req, res);
+      const socialActivity: Activity | void = await getSocialActivity(
+        _req,
+        _res
+      );
 
       // If true, send data
-      if (socialActivity) {
-        res.json(socialActivity);
-        console.log("Request sent! social activity is:", socialActivity);
-      } // If void, send error
-      else {
-        res.status(500).send("Failed to get social activity.");
-      }
+      socialActivity && _res.status(200).json(socialActivity); // Send response
+      console.log(`Request for activity sent! Activity is:`, socialActivity);
     } catch (error) {
       console.error("Error handling social activity request:", error);
-      res.status(500).send("Internal server error.");
+      _res.status(500).send("Internal server error.");
     }
   }
 ); // * end GET Request Social Activity
