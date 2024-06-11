@@ -17,22 +17,17 @@ const cookingActivityController_1 = require("../../controllers/activityControlle
 // Express Router
 const cookingActivityRouter = (0, express_1.Router)();
 // * GET Request cooking Activity
-cookingActivityRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+cookingActivityRouter.get("/", (_req, _res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Declaring activity
-        const cookingActivity = yield (0, cookingActivityController_1.getCookingActivity)(req, res);
+        const cookingActivity = yield (0, cookingActivityController_1.getCookingActivity)(_req, _res);
         // If true, send data
-        if (cookingActivity) {
-            res.json(cookingActivity);
-            console.log("Request sent! cooking activity is:", cookingActivity);
-        } // If void, send error
-        else {
-            res.status(500).send("Failed to get cooking activity.");
-        }
+        cookingActivity && _res.status(200).json(cookingActivity); // Send response
+        console.log(`Request for activity sent! Activity is:`, cookingActivity);
     }
     catch (error) {
         console.error("Error handling cooking activity request:", error);
-        res.status(500).send("Internal server error.");
+        _res.status(500).send("Internal server error.");
     }
 })); // * end GET Request cooking Activity
 // * Exporting Router

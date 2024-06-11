@@ -17,22 +17,17 @@ const musicActivityController_1 = require("../../controllers/activityController/
 // Express Router
 const musicActivityRouter = (0, express_1.Router)();
 // * GET Request Social Activity
-musicActivityRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+musicActivityRouter.get("/", (_req, _res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Declaring activity
-        const musicActivity = yield (0, musicActivityController_1.getMusicActivity)(req, res);
+        const musicActivity = yield (0, musicActivityController_1.getMusicActivity)(_req, _res);
         // If true, send data
-        if (musicActivity) {
-            res.json(musicActivity);
-            console.log("Request sent! social activity is:", musicActivity);
-        } // If void, send error
-        else {
-            res.status(500).send("Failed to get social activity.");
-        }
+        musicActivity && _res.status(200).json(musicActivity); // Send response
+        console.log(`Request for activity sent! Activity is:`, musicActivity);
     }
     catch (error) {
-        console.error("Error handling social activity request:", error);
-        res.status(500).send("Internal server error.");
+        console.error("Error handling music activity request:", error);
+        _res.status(500).send("Internal server error.");
     }
 })); // * end GET Request Social Activity
 // * Exporting Router

@@ -17,22 +17,17 @@ const relaxationActivityController_1 = require("../../controllers/activityContro
 // Express Router
 const relaxationActivityRouter = (0, express_1.Router)();
 // * GET Request relaxation Activity
-relaxationActivityRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+relaxationActivityRouter.get("/", (_req, _res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Declaring activity
-        const relaxationActivity = yield (0, relaxationActivityController_1.getRelaxationActivity)(req, res);
+        const relaxationActivity = yield (0, relaxationActivityController_1.getRelaxationActivity)(_req, _res);
         // If true, send data
-        if (relaxationActivity) {
-            res.json(relaxationActivity);
-            console.log("Request sent! relaxation activity is:", relaxationActivity);
-        } // If void, send error
-        else {
-            res.status(500).send("Failed to get relaxation activity.");
-        }
+        relaxationActivity && _res.status(200).json(relaxationActivity); // Send response
+        console.log(`Request for activity sent! Activity is:`, relaxationActivity);
     }
     catch (error) {
         console.error("Error handling relaxation activity request:", error);
-        res.status(500).send("Internal server error.");
+        _res.status(500).send("Internal server error.");
     }
 })); // * end GET Request relaxation Activity
 // * Exporting Router

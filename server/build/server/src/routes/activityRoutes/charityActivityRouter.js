@@ -17,22 +17,17 @@ const charityActivityController_1 = require("../../controllers/activityControlle
 // Express Router
 const charityActivityRouter = (0, express_1.Router)();
 // * GET Request Social Activity
-charityActivityRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+charityActivityRouter.get("/", (_req, _res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Declaring activity
-        const socialActivity = yield (0, charityActivityController_1.getCharityActivity)(req, res);
+        const charityActivity = yield (0, charityActivityController_1.getCharityActivity)(_req, _res);
         // If true, send data
-        if (socialActivity) {
-            res.json(socialActivity);
-            console.log("Request sent! social activity is:", socialActivity);
-        } // If void, send error
-        else {
-            res.status(500).send("Failed to get social activity.");
-        }
+        charityActivity && _res.status(200).json(charityActivity); // Send response
+        console.log(`Request for activity sent! Activity is:`, charityActivity);
     }
     catch (error) {
-        console.error("Error handling social activity request:", error);
-        res.status(500).send("Internal server error.");
+        console.error("Error handling charity activity request:", error);
+        _res.status(500).send("Internal server error.");
     }
 })); // * end GET Request Social Activity
 // * Exporting Router

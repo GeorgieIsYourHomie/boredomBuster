@@ -17,25 +17,37 @@ export const getCharityActivity = async (
   try {
     // Get request to the API for a charity activity
     const response: AxiosResponse<Activity> = await axios.get(
-      "http://www.boredapi.com/api/activity?type=charity"
+      "https://bored-api.appbrewery.com/filter?type=charity",
+      {
+        headers: {
+          "User-Agent": "Mozilla/5.0 (compatible; BoredAPIClient/1.0)",
+        },
+      }
     );
 
-    // Declaring data from the response; using type to check data
+    // Ensure data is an array
     const data: Activity = response.data;
 
+    // Generate a random charity activity or throw an error if none found
+    const charityActivity =
+      (Array.isArray(data) &&
+        data.length > 0 &&
+        data[Math.floor(Math.random() * data.length)]) ||
+      (() => {
+        throw new Error("No charity activities found.");
+      })();
+
     // Creating an object
-    const charityActivity: Activity = {
-      activity: data.activity,
-      type: data.type,
-      participants: data.participants,
-      price: data.price,
-      key: data.key,
-      accessibility: data.accessibility,
+    return {
+      activity: charityActivity.activity,
+      type: charityActivity.type,
+      participants: charityActivity.participants,
+      price: charityActivity.price,
+      key: charityActivity.key,
+      accessibility: charityActivity.accessibility,
     };
 
-    return charityActivity; // Return the result
-
-    // No need to send the response here
+    //No need to send the response here
     // The response will be sent in the route handler
   } catch (error) {
     console.error("Error handling charity activity request:", error);

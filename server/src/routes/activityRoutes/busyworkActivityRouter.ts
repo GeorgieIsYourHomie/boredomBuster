@@ -11,25 +11,20 @@ const busyworkActivityRouter = Router();
 // * GET Request busywork Activity
 busyworkActivityRouter.get(
   "/",
-  async (req: Request, res: Response): Promise<void> => {
+  async (_req: Request, _res: Response): Promise<void> => {
     try {
       // Declaring activity
       const busyworkActivity: Activity | void = await getBusyworkActivity(
-        req,
-        res
+        _req,
+        _res
       );
 
       // If true, send data
-      if (busyworkActivity) {
-        res.json(busyworkActivity);
-        console.log("Request sent! busywork activity is:", busyworkActivity);
-      } // If void, send error
-      else {
-        res.status(500).send("Failed to get busywork activity.");
-      }
+      busyworkActivity && _res.status(200).json(busyworkActivity); // Send response
+      console.log(`Request for activity sent! Activity is:`, busyworkActivity);
     } catch (error) {
       console.error("Error handling busywork activity request:", error);
-      res.status(500).send("Internal server error.");
+      _res.status(500).send("Internal server error.");
     }
   }
 ); // * end GET Request busywork Activity

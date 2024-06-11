@@ -17,22 +17,17 @@ const busyworkActivityController_1 = require("../../controllers/activityControll
 // Express Router
 const busyworkActivityRouter = (0, express_1.Router)();
 // * GET Request busywork Activity
-busyworkActivityRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+busyworkActivityRouter.get("/", (_req, _res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Declaring activity
-        const busyworkActivity = yield (0, busyworkActivityController_1.getBusyworkActivity)(req, res);
+        const busyworkActivity = yield (0, busyworkActivityController_1.getBusyworkActivity)(_req, _res);
         // If true, send data
-        if (busyworkActivity) {
-            res.json(busyworkActivity);
-            console.log("Request sent! busywork activity is:", busyworkActivity);
-        } // If void, send error
-        else {
-            res.status(500).send("Failed to get busywork activity.");
-        }
+        busyworkActivity && _res.status(200).json(busyworkActivity); // Send response
+        console.log(`Request for activity sent! Activity is:`, busyworkActivity);
     }
     catch (error) {
         console.error("Error handling busywork activity request:", error);
-        res.status(500).send("Internal server error.");
+        _res.status(500).send("Internal server error.");
     }
 })); // * end GET Request busywork Activity
 // * Exporting Router

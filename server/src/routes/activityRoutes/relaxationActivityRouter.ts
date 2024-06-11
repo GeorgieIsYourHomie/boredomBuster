@@ -11,25 +11,23 @@ const relaxationActivityRouter = Router();
 // * GET Request relaxation Activity
 relaxationActivityRouter.get(
   "/",
-  async (req: Request, res: Response): Promise<void> => {
+  async (_req: Request, _res: Response): Promise<void> => {
     try {
       // Declaring activity
       const relaxationActivity: Activity | void = await getRelaxationActivity(
-        req,
-        res
+        _req,
+        _res
       );
 
       // If true, send data
-      if (relaxationActivity) {
-        res.json(relaxationActivity);
-        console.log("Request sent! relaxation activity is:", relaxationActivity);
-      } // If void, send error
-      else {
-        res.status(500).send("Failed to get relaxation activity.");
-      }
+      relaxationActivity && _res.status(200).json(relaxationActivity); // Send response
+      console.log(
+        `Request for activity sent! Activity is:`,
+        relaxationActivity
+      );
     } catch (error) {
       console.error("Error handling relaxation activity request:", error);
-      res.status(500).send("Internal server error.");
+      _res.status(500).send("Internal server error.");
     }
   }
 ); // * end GET Request relaxation Activity

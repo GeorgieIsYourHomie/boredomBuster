@@ -17,23 +17,30 @@ export const getRelaxationActivity = async (
   try {
     // Get request to the API for a relaxation activity
     const response: AxiosResponse<Activity> = await axios.get(
-      "http://www.boredapi.com/api/activity?type=relaxation"
+      "https://bored-api.appbrewery.com/filter?type=relaxation"
     );
 
     // Declaring data from the response; using type to check data
     const data: Activity = response.data;
 
-    // Creating an object
-    const relaxationActivity: Activity = {
-      activity: data.activity,
-      type: data.type,
-      participants: data.participants,
-      price: data.price,
-      key: data.key,
-      accessibility: data.accessibility,
-    };
+    // Generate a random relaxation activity or throw an error if none found
+    const relaxationActivity =
+      (Array.isArray(data) &&
+        data.length > 0 &&
+        data[Math.floor(Math.random() * data.length)]) ||
+      (() => {
+        throw new Error("No relaxation activities found.");
+      })();
 
-    return relaxationActivity; // Return the result
+    // Creating an object
+    return {
+      activity: relaxationActivity.activity,
+      type: relaxationActivity.type,
+      participants: relaxationActivity.participants,
+      price: relaxationActivity.price,
+      key: relaxationActivity.key,
+      accessibility: relaxationActivity.accessibility,
+    };
 
     // No need to send the response here
     // The response will be sent in the route handler

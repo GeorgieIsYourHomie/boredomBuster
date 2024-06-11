@@ -11,22 +11,17 @@ const DIYActivityRouter = Router();
 // * GET Request DIY Activity
 DIYActivityRouter.get(
   "/",
-  async (req: Request, res: Response): Promise<void> => {
+  async (_req: Request, _res: Response): Promise<void> => {
     try {
       // Declaring activity
-      const DIYActivity: Activity | void = await getDIYActivity(req, res);
+      const DIYActivity: Activity | void = await getDIYActivity(_req, _res);
 
       // If true, send data
-      if (DIYActivity) {
-        res.json(DIYActivity);
-        console.log("Request sent! DIY activity is:", DIYActivity);
-      } // If void, send error
-      else {
-        res.status(500).send("Failed to get DIY activity.");
-      }
+      DIYActivity && _res.status(200).json(DIYActivity); // Send response
+      console.log(`Request for activity sent! Activity is:`, DIYActivity);
     } catch (error) {
       console.error("Error handling DIY activity request:", error);
-      res.status(500).send("Internal server error.");
+      _res.status(500).send("Internal server error.");
     }
   }
 ); // * end GET Request DIY Activity

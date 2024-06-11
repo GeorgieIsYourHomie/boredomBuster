@@ -17,22 +17,17 @@ const DIYActivityController_1 = require("../../controllers/activityController/DI
 // Express Router
 const DIYActivityRouter = (0, express_1.Router)();
 // * GET Request DIY Activity
-DIYActivityRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+DIYActivityRouter.get("/", (_req, _res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Declaring activity
-        const DIYActivity = yield (0, DIYActivityController_1.getDIYActivity)(req, res);
+        const DIYActivity = yield (0, DIYActivityController_1.getDIYActivity)(_req, _res);
         // If true, send data
-        if (DIYActivity) {
-            res.json(DIYActivity);
-            console.log("Request sent! DIY activity is:", DIYActivity);
-        } // If void, send error
-        else {
-            res.status(500).send("Failed to get DIY activity.");
-        }
+        DIYActivity && _res.status(200).json(DIYActivity); // Send response
+        console.log(`Request for activity sent! Activity is:`, DIYActivity);
     }
     catch (error) {
         console.error("Error handling DIY activity request:", error);
-        res.status(500).send("Internal server error.");
+        _res.status(500).send("Internal server error.");
     }
 })); // * end GET Request DIY Activity
 // * Exporting Router

@@ -22,23 +22,29 @@ const axios_1 = __importDefault(require("axios"));
 const getEducationalActivity = (_req, _res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Get request to the API for a education activity
-        const response = yield axios_1.default.get("https://bored-api.appbrewery.com/random", {
+        const response = yield axios_1.default.get("https://bored-api.appbrewery.com/filter?type=education", {
             headers: {
                 "User-Agent": "Mozilla/5.0 (compatible; BoredAPIClient/1.0)",
             },
         });
         // Declaring data from the response; using type to check data
         const data = response.data;
+        // Generate a random educational activity or throw an error if none found
+        const educationalActivity = (Array.isArray(data) &&
+            data.length > 0 &&
+            data[Math.floor(Math.random() * data.length)]) ||
+            (() => {
+                throw new Error("No educational activities found.");
+            })();
         // Creating an object
-        const educationActivityAndCategory = {
-            activity: data.activity,
-            type: data.type,
-            participants: data.participants,
-            price: data.price,
-            key: data.key,
-            accessibility: data.accessibility,
+        return {
+            activity: educationalActivity.activity,
+            type: educationalActivity.type,
+            participants: educationalActivity.participants,
+            price: educationalActivity.price,
+            key: educationalActivity.key,
+            accessibility: educationalActivity.accessibility,
         };
-        return educationActivityAndCategory; // Return the result
         // No need to send the response here
         // The response will be sent in the route handler
     }

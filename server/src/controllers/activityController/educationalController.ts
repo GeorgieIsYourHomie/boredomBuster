@@ -16,30 +16,36 @@ export const getEducationalActivity = async (
 ): Promise<Activity | void> => {
   try {
     // Get request to the API for a education activity
-     const response: AxiosResponse<Activity> = await axios.get(
-       "https://bored-api.appbrewery.com/random",
-       {
-         headers: {
-           "User-Agent": "Mozilla/5.0 (compatible; BoredAPIClient/1.0)",
-         },
-       }
-     );
-
+    const response: AxiosResponse<Activity> = await axios.get(
+      "https://bored-api.appbrewery.com/filter?type=education",
+      {
+        headers: {
+          "User-Agent": "Mozilla/5.0 (compatible; BoredAPIClient/1.0)",
+        },
+      }
+    );
 
     // Declaring data from the response; using type to check data
     const data: Activity = response.data;
 
-    // Creating an object
-    const educationActivityAndCategory: Activity = {
-      activity: data.activity,
-      type: data.type,
-      participants: data.participants,
-      price: data.price,
-      key: data.key,
-      accessibility: data.accessibility,
-    };
+    // Generate a random educational activity or throw an error if none found
+    const educationalActivity =
+      (Array.isArray(data) &&
+        data.length > 0 &&
+        data[Math.floor(Math.random() * data.length)]) ||
+      (() => {
+        throw new Error("No educational activities found.");
+      })();
 
-    return educationActivityAndCategory; // Return the result
+    // Creating an object
+    return {
+      activity: educationalActivity.activity,
+      type: educationalActivity.type,
+      participants: educationalActivity.participants,
+      price: educationalActivity.price,
+      key: educationalActivity.key,
+      accessibility: educationalActivity.accessibility,
+    };
 
     // No need to send the response here
     // The response will be sent in the route handler

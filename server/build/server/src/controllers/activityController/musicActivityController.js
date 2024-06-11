@@ -22,19 +22,25 @@ const axios_1 = __importDefault(require("axios"));
 const getMusicActivity = (_req, _res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Get request to the API for a music activity
-        const response = yield axios_1.default.get("http://www.boredapi.com/api/activity?type=music");
+        const response = yield axios_1.default.get("https://bored-api.appbrewery.com/filter?type=music");
         // Declaring data from the response; using type to check data
         const data = response.data;
+        // Generate a random busywork activity or throw an error if none found
+        const musicActivity = (Array.isArray(data) &&
+            data.length > 0 &&
+            data[Math.floor(Math.random() * data.length)]) ||
+            (() => {
+                throw new Error("No music activities found.");
+            })();
         // Creating an object
-        const musicActivity = {
-            activity: data.activity,
-            type: data.type,
-            participants: data.participants,
-            price: data.price,
-            key: data.key,
-            accessibility: data.accessibility,
+        return {
+            activity: musicActivity.activity,
+            type: musicActivity.type,
+            participants: musicActivity.participants,
+            price: musicActivity.price,
+            key: musicActivity.key,
+            accessibility: musicActivity.accessibility,
         };
-        return musicActivity; // Return the result
         // No need to send the response here
         // The response will be sent in the route handler
     }
